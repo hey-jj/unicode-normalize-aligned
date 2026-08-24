@@ -1,0 +1,72 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  stable:
+    name: stable gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+      - run: cargo build --locked
+      - run: cargo test --locked
+      - run: cargo test --locked --release
+      - run: cargo clippy --all-targets --locked -- -D warnings
+      - run: cargo fmt --check
+      - run: cd fuzz && cargo check
+
+  msrv:
+    name: msrv floor (1.63, dev-dependencies stripped)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: dtolnay/rust-toolchain@1.63
+      - run: scripts/msrv-floor.sh cargo 1.63 --doc
+
+  tables:
+    name: regenerate tables and diff
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo run -p gen --release
+      - run: git diff --exit-code src/tables.rs
+
+  bench-gate:
+    name: throughput floor 0.90x
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: THROUGHPUT_GATE_ONLY=1 cargo bench --bench throughput
+
+  fuzz:
+    name: corpus replay and 60 s fuzz
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@nightly
+      - run: cargo install cargo-fuzz --locked
+      - run: cargo +nightly fuzz run normalize fuzz/corpus/normalize -- -runs=0
+      - run: cargo +nightly fuzz run normalize -- -max_total_time=60
+
+  prose:
+    name: prose gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo install ai-slop --locked
+      - run: ai-slop check --profile readme README.md
+      - run: ai-slop check --profile changelog CHANGELOG.md
+      - run: ai-slop check --profile cargo-metadata Cargo.toml

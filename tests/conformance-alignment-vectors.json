@@ -1,0 +1,12783 @@
+{
+ "schema": "conformance-alignment-vectors/1",
+ "unicode_version": "17.0.0",
+ "contract": "per output char: isize change; 0 = replaces one input char; +1 = inserted (consumes no input); -N = replaces one input char and removes the N following input chars; consumption is positional in output order",
+ "vectors": [
+  {
+   "label": "comb-compose-A-ring",
+   "input": "0041 030A",
+   "input_chars": 2,
+   "note": "A + COMBINING RING ABOVE composes to U+00C5 (2->1)",
+   "forms": {
+    "NFC": {
+     "expected_output": "00C5",
+     "expected_pairs": [
+      [
+       "00C5",
+       -1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00C5",
+       -1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0041 030A",
+     "expected_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "00C5",
+     "expected_pairs": [
+      [
+       "00C5",
+       -1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00C5",
+       -1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0041 030A",
+     "expected_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-decompose-Aring",
+   "input": "00C5",
+   "input_chars": 1,
+   "note": "precomposed U+00C5 decomposes to A + 030A (1->2)",
+   "forms": {
+    "NFC": {
+     "expected_output": "00C5",
+     "expected_pairs": [
+      [
+       "00C5",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00C5",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0041 030A",
+     "expected_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "00C5",
+     "expected_pairs": [
+      [
+       "00C5",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00C5",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0041 030A",
+     "expected_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-reorder-acute-dot",
+   "input": "0065 0301 0323",
+   "input_chars": 3,
+   "note": "e + acute(230) + dot below(220): canonical order swaps marks; NFC composes e+0323 then +0301 = U+1EC7",
+   "forms": {
+    "NFC": {
+     "expected_output": "1EB9 0301",
+     "expected_pairs": [
+      [
+       "1EB9",
+       -1
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1EB9",
+       -1
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0065 0323 0301",
+     "expected_pairs": [
+      [
+       "0065",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0065",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "1EB9 0301",
+     "expected_pairs": [
+      [
+       "1EB9",
+       -1
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1EB9",
+       -1
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0065 0323 0301",
+     "expected_pairs": [
+      [
+       "0065",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0065",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-already-ordered",
+   "input": "0065 0323 0301",
+   "input_chars": 3,
+   "note": "e + dot below(220) + acute(230): already canonical; NFC = U+1EC7",
+   "forms": {
+    "NFC": {
+     "expected_output": "1EB9 0301",
+     "expected_pairs": [
+      [
+       "1EB9",
+       -1
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1EB9",
+       -1
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0065 0323 0301",
+     "expected_pairs": [
+      [
+       "0065",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0065",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "1EB9 0301",
+     "expected_pairs": [
+      [
+       "1EB9",
+       -1
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1EB9",
+       -1
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0065 0323 0301",
+     "expected_pairs": [
+      [
+       "0065",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0065",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-double-mark-0344",
+   "input": "0055 0344",
+   "input_chars": 2,
+   "note": "U+0344 decomposes to 0308 0301; both compose onto U: U+00DC then U+01D7",
+   "forms": {
+    "NFC": {
+     "expected_output": "01D7",
+     "expected_pairs": [
+      [
+       "01D7",
+       -1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "01D7",
+       -1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0055 0308 0301",
+     "expected_pairs": [
+      [
+       "0055",
+       0
+      ],
+      [
+       "0308",
+       0
+      ],
+      [
+       "0301",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0055",
+       0
+      ],
+      [
+       "0308",
+       0
+      ],
+      [
+       "0301",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "01D7",
+     "expected_pairs": [
+      [
+       "01D7",
+       -1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "01D7",
+       -1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0055 0308 0301",
+     "expected_pairs": [
+      [
+       "0055",
+       0
+      ],
+      [
+       "0308",
+       0
+      ],
+      [
+       "0301",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0055",
+       0
+      ],
+      [
+       "0308",
+       0
+      ],
+      [
+       "0301",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-decomp-then-reorder",
+   "input": "1E0B 0323",
+   "input_chars": 2,
+   "note": "U+1E0B = d+0307(230); following 0323(220) must reorder before 0307; NFC = U+1E0D 0307",
+   "forms": {
+    "NFC": {
+     "expected_output": "1E0D 0307",
+     "expected_pairs": [
+      [
+       "1E0D",
+       -1
+      ],
+      [
+       "0307",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1E0D",
+       -1
+      ],
+      [
+       "0307",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0064 0323 0307",
+     "expected_pairs": [
+      [
+       "0064",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0307",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0064",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0307",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "1E0D 0307",
+     "expected_pairs": [
+      [
+       "1E0D",
+       -1
+      ],
+      [
+       "0307",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1E0D",
+       -1
+      ],
+      [
+       "0307",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0064 0323 0307",
+     "expected_pairs": [
+      [
+       "0064",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0307",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0064",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0307",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-tibetan-0F73",
+   "input": "0F73",
+   "input_chars": 1,
+   "note": "U+0F73 -> 0F71(129) 0F72(130); composition excluded so NFC stays decomposed",
+   "forms": {
+    "NFC": {
+     "expected_output": "0F71 0F72",
+     "expected_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0F71 0F72",
+     "expected_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0F71 0F72",
+     "expected_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0F71 0F72",
+     "expected_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-tibetan-reorder-tag1-first",
+   "input": "0F74 0F73",
+   "input_chars": 2,
+   "note": "0F74(132) then 0F73->0F71(129) 0F72(130): reordering moves decomposed chars ahead of the earlier input mark",
+   "forms": {
+    "NFC": {
+     "expected_output": "0F71 0F72 0F74",
+     "expected_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       1
+      ],
+      [
+       "0F74",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       1
+      ],
+      [
+       "0F74",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0F71 0F72 0F74",
+     "expected_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       1
+      ],
+      [
+       "0F74",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       1
+      ],
+      [
+       "0F74",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0F71 0F72 0F74",
+     "expected_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       1
+      ],
+      [
+       "0F74",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       1
+      ],
+      [
+       "0F74",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0F71 0F72 0F74",
+     "expected_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       1
+      ],
+      [
+       "0F74",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       1
+      ],
+      [
+       "0F74",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-tibetan-0F75-0F72",
+   "input": "0F75 0F72",
+   "input_chars": 2,
+   "note": "0F75 -> 0F71(129) 0F74(132); 0F72(130) reorders between them",
+   "forms": {
+    "NFC": {
+     "expected_output": "0F71 0F72 0F74",
+     "expected_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       0
+      ],
+      [
+       "0F74",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       0
+      ],
+      [
+       "0F74",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0F71 0F72 0F74",
+     "expected_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       0
+      ],
+      [
+       "0F74",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       0
+      ],
+      [
+       "0F74",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0F71 0F72 0F74",
+     "expected_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       0
+      ],
+      [
+       "0F74",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       0
+      ],
+      [
+       "0F74",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0F71 0F72 0F74",
+     "expected_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       0
+      ],
+      [
+       "0F74",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F72",
+       0
+      ],
+      [
+       "0F74",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-nonblocking-intervening",
+   "input": "0061 0327 0301",
+   "input_chars": 3,
+   "note": "a + cedilla(202) + acute(230): acute composes with a across the cedilla; output U+00E1 0327",
+   "forms": {
+    "NFC": {
+     "expected_output": "00E1 0327",
+     "expected_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "0327",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "0327",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0061 0327 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0327",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0327",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "00E1 0327",
+     "expected_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "0327",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "0327",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0061 0327 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0327",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0327",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-blocked",
+   "input": "0061 0301 0301",
+   "input_chars": 3,
+   "note": "a + acute + acute: second acute blocked (equal ccc) -> U+00E1 0301",
+   "forms": {
+    "NFC": {
+     "expected_output": "00E1 0301",
+     "expected_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0061 0301 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "00E1 0301",
+     "expected_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0061 0301 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-starter-blocks",
+   "input": "0061 0062 0301",
+   "input_chars": 3,
+   "note": "a b acute: acute composes with b only",
+   "forms": {
+    "NFC": {
+     "expected_output": "0061 0062 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0062",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0062",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0061 0062 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0062",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0062",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0061 0062 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0062",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0062",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0061 0062 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0062",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0062",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-greek-dialytika-tonos",
+   "input": "03B9 0308 0301",
+   "input_chars": 3,
+   "note": "iota + dialytika + tonos -> U+0390 (3->1, chained)",
+   "forms": {
+    "NFC": {
+     "expected_output": "0390",
+     "expected_pairs": [
+      [
+       "0390",
+       -2
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0390",
+       -2
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "03B9 0308 0301",
+     "expected_pairs": [
+      [
+       "03B9",
+       0
+      ],
+      [
+       "0308",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "03B9",
+       0
+      ],
+      [
+       "0308",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0390",
+     "expected_pairs": [
+      [
+       "0390",
+       -2
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0390",
+       -2
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "03B9 0308 0301",
+     "expected_pairs": [
+      [
+       "03B9",
+       0
+      ],
+      [
+       "0308",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "03B9",
+       0
+      ],
+      [
+       "0308",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-vietnamese-decomp",
+   "input": "0041 0302 0301",
+   "input_chars": 3,
+   "note": "A + circumflex + acute -> U+1EA4 (3->1)",
+   "forms": {
+    "NFC": {
+     "expected_output": "1EA4",
+     "expected_pairs": [
+      [
+       "1EA4",
+       -2
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1EA4",
+       -2
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0041 0302 0301",
+     "expected_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "0302",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "0302",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "1EA4",
+     "expected_pairs": [
+      [
+       "1EA4",
+       -2
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1EA4",
+       -2
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0041 0302 0301",
+     "expected_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "0302",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "0302",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-vietnamese-precomposed",
+   "input": "1EA4",
+   "input_chars": 1,
+   "note": "U+1EA4 -> A 0302 0301 under NFD (1->3)",
+   "forms": {
+    "NFC": {
+     "expected_output": "1EA4",
+     "expected_pairs": [
+      [
+       "1EA4",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1EA4",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0041 0302 0301",
+     "expected_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "0302",
+       1
+      ],
+      [
+       "0301",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "0302",
+       1
+      ],
+      [
+       "0301",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "1EA4",
+     "expected_pairs": [
+      [
+       "1EA4",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1EA4",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0041 0302 0301",
+     "expected_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "0302",
+       1
+      ],
+      [
+       "0301",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "0302",
+       1
+      ],
+      [
+       "0301",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-lone-mark",
+   "input": "0301",
+   "input_chars": 1,
+   "note": "lone combining mark, no base",
+   "forms": {
+    "NFC": {
+     "expected_output": "0301",
+     "expected_pairs": [
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0301",
+     "expected_pairs": [
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0301",
+     "expected_pairs": [
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0301",
+     "expected_pairs": [
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-leading-marks",
+   "input": "0301 0323 0061",
+   "input_chars": 3,
+   "note": "marks before any starter: reordered among themselves, never compose",
+   "forms": {
+    "NFC": {
+     "expected_output": "0323 0301 0061",
+     "expected_pairs": [
+      [
+       "0323",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0061",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0323",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0061",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0323 0301 0061",
+     "expected_pairs": [
+      [
+       "0323",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0061",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0323",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0061",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0323 0301 0061",
+     "expected_pairs": [
+      [
+       "0323",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0061",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0323",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0061",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0323 0301 0061",
+     "expected_pairs": [
+      [
+       "0323",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0061",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0323",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0061",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-singleton-2000",
+   "input": "2000",
+   "input_chars": 1,
+   "note": "EN QUAD singleton -> 2002; singletons never recompose",
+   "forms": {
+    "NFC": {
+     "expected_output": "2002",
+     "expected_pairs": [
+      [
+       "2002",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "2002",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "2002",
+     "expected_pairs": [
+      [
+       "2002",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "2002",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0020",
+     "expected_pairs": [
+      [
+       "0020",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0020",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0020",
+     "expected_pairs": [
+      [
+       "0020",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0020",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-singleton-0340",
+   "input": "0340",
+   "input_chars": 1,
+   "note": "COMBINING GRAVE TONE MARK singleton -> 0300",
+   "forms": {
+    "NFC": {
+     "expected_output": "0300",
+     "expected_pairs": [
+      [
+       "0300",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0300",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0300",
+     "expected_pairs": [
+      [
+       "0300",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0300",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0300",
+     "expected_pairs": [
+      [
+       "0300",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0300",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0300",
+     "expected_pairs": [
+      [
+       "0300",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0300",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-singleton-212B",
+   "input": "212B",
+   "input_chars": 1,
+   "note": "ANGSTROM SIGN singleton -> 00C5 -> A 030A; NFC recomposes to 00C5",
+   "forms": {
+    "NFC": {
+     "expected_output": "00C5",
+     "expected_pairs": [
+      [
+       "00C5",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00C5",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0041 030A",
+     "expected_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "00C5",
+     "expected_pairs": [
+      [
+       "00C5",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00C5",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0041 030A",
+     "expected_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-singleton-2126",
+   "input": "2126",
+   "input_chars": 1,
+   "note": "OHM SIGN singleton -> 03A9",
+   "forms": {
+    "NFC": {
+     "expected_output": "03A9",
+     "expected_pairs": [
+      [
+       "03A9",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "03A9",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "03A9",
+     "expected_pairs": [
+      [
+       "03A9",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "03A9",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "03A9",
+     "expected_pairs": [
+      [
+       "03A9",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "03A9",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "03A9",
+     "expected_pairs": [
+      [
+       "03A9",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "03A9",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-excl-0958",
+   "input": "0958",
+   "input_chars": 1,
+   "note": "DEVANAGARI QA: script-specific composition exclusion; NFC stays 0915 093C",
+   "forms": {
+    "NFC": {
+     "expected_output": "0915 093C",
+     "expected_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "093C",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "093C",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0915 093C",
+     "expected_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "093C",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "093C",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0915 093C",
+     "expected_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "093C",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "093C",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0915 093C",
+     "expected_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "093C",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "093C",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-excl-FB2C",
+   "input": "FB2C",
+   "input_chars": 1,
+   "note": "HEBREW SHIN WITH DAGESH AND SHIN DOT: excluded; NFD = 05E9 05BC 05C1 (ccc 21, 24)",
+   "forms": {
+    "NFC": {
+     "expected_output": "05E9 05BC 05C1",
+     "expected_pairs": [
+      [
+       "05E9",
+       0
+      ],
+      [
+       "05BC",
+       1
+      ],
+      [
+       "05C1",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "05E9",
+       0
+      ],
+      [
+       "05BC",
+       1
+      ],
+      [
+       "05C1",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "05E9 05BC 05C1",
+     "expected_pairs": [
+      [
+       "05E9",
+       0
+      ],
+      [
+       "05BC",
+       1
+      ],
+      [
+       "05C1",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "05E9",
+       0
+      ],
+      [
+       "05BC",
+       1
+      ],
+      [
+       "05C1",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "05E9 05BC 05C1",
+     "expected_pairs": [
+      [
+       "05E9",
+       0
+      ],
+      [
+       "05BC",
+       1
+      ],
+      [
+       "05C1",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "05E9",
+       0
+      ],
+      [
+       "05BC",
+       1
+      ],
+      [
+       "05C1",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "05E9 05BC 05C1",
+     "expected_pairs": [
+      [
+       "05E9",
+       0
+      ],
+      [
+       "05BC",
+       1
+      ],
+      [
+       "05C1",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "05E9",
+       0
+      ],
+      [
+       "05BC",
+       1
+      ],
+      [
+       "05C1",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-excl-post-composition-0F81",
+   "input": "0F81",
+   "input_chars": 1,
+   "note": "0F81 -> 0F71 0F80; excluded",
+   "forms": {
+    "NFC": {
+     "expected_output": "0F71 0F80",
+     "expected_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F80",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F80",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0F71 0F80",
+     "expected_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F80",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F80",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0F71 0F80",
+     "expected_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F80",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F80",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0F71 0F80",
+     "expected_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F80",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0F71",
+       0
+      ],
+      [
+       "0F80",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-tamil-two-part-vowel",
+   "input": "0BCA",
+   "input_chars": 1,
+   "note": "0BCA -> 0BC6 0BBE; recomposes (two-part vowel, not excluded)",
+   "forms": {
+    "NFC": {
+     "expected_output": "0BCA",
+     "expected_pairs": [
+      [
+       "0BCA",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0BCA",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0BC6 0BBE",
+     "expected_pairs": [
+      [
+       "0BC6",
+       0
+      ],
+      [
+       "0BBE",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0BC6",
+       0
+      ],
+      [
+       "0BBE",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0BCA",
+     "expected_pairs": [
+      [
+       "0BCA",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0BCA",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0BC6 0BBE",
+     "expected_pairs": [
+      [
+       "0BC6",
+       0
+      ],
+      [
+       "0BBE",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0BC6",
+       0
+      ],
+      [
+       "0BBE",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-tamil-split",
+   "input": "0BC6 0BBE",
+   "input_chars": 2,
+   "note": "0BC6 + 0BBE compose to 0BCA (starter + starter composition, ccc 0 both)",
+   "forms": {
+    "NFC": {
+     "expected_output": "0BCA",
+     "expected_pairs": [
+      [
+       "0BCA",
+       -1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0BCA",
+       -1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0BC6 0BBE",
+     "expected_pairs": [
+      [
+       "0BC6",
+       0
+      ],
+      [
+       "0BBE",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0BC6",
+       0
+      ],
+      [
+       "0BBE",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0BCA",
+     "expected_pairs": [
+      [
+       "0BCA",
+       -1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0BCA",
+       -1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0BC6 0BBE",
+     "expected_pairs": [
+      [
+       "0BC6",
+       0
+      ],
+      [
+       "0BBE",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0BC6",
+       0
+      ],
+      [
+       "0BBE",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-katakana-dakuten",
+   "input": "30AB 3099",
+   "input_chars": 2,
+   "note": "KA + combining dakuten(8) -> U+30AC",
+   "forms": {
+    "NFC": {
+     "expected_output": "30AC",
+     "expected_pairs": [
+      [
+       "30AC",
+       -1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "30AC",
+       -1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "30AB 3099",
+     "expected_pairs": [
+      [
+       "30AB",
+       0
+      ],
+      [
+       "3099",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "30AB",
+       0
+      ],
+      [
+       "3099",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "30AC",
+     "expected_pairs": [
+      [
+       "30AC",
+       -1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "30AC",
+       -1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "30AB 3099",
+     "expected_pairs": [
+      [
+       "30AB",
+       0
+      ],
+      [
+       "3099",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "30AB",
+       0
+      ],
+      [
+       "3099",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-arabic-shadda-fatha",
+   "input": "0645 064E 0651",
+   "input_chars": 3,
+   "note": "meem + fatha(30) + shadda(33): already canonical order",
+   "forms": {
+    "NFC": {
+     "expected_output": "0645 064E 0651",
+     "expected_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0645 064E 0651",
+     "expected_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0645 064E 0651",
+     "expected_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0645 064E 0651",
+     "expected_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-arabic-shadda-fatha-reorder",
+   "input": "0645 0651 064E",
+   "input_chars": 3,
+   "note": "meem + shadda(33) + fatha(30): reorders to fatha shadda",
+   "forms": {
+    "NFC": {
+     "expected_output": "0645 064E 0651",
+     "expected_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0645 064E 0651",
+     "expected_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0645 064E 0651",
+     "expected_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0645 064E 0651",
+     "expected_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-many-marks",
+   "input": "0061 0316 0317 0318 0319 0300 0301 0302",
+   "input_chars": 8,
+   "note": "eight marks below/above, stable sort within class",
+   "forms": {
+    "NFC": {
+     "expected_output": "00E0 0316 0317 0318 0319 0301 0302",
+     "expected_pairs": [
+      [
+       "00E0",
+       -1
+      ],
+      [
+       "0316",
+       0
+      ],
+      [
+       "0317",
+       0
+      ],
+      [
+       "0318",
+       0
+      ],
+      [
+       "0319",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0302",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00E0",
+       -1
+      ],
+      [
+       "0316",
+       0
+      ],
+      [
+       "0317",
+       0
+      ],
+      [
+       "0318",
+       0
+      ],
+      [
+       "0319",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0302",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0061 0316 0317 0318 0319 0300 0301 0302",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0316",
+       0
+      ],
+      [
+       "0317",
+       0
+      ],
+      [
+       "0318",
+       0
+      ],
+      [
+       "0319",
+       0
+      ],
+      [
+       "0300",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0302",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0316",
+       0
+      ],
+      [
+       "0317",
+       0
+      ],
+      [
+       "0318",
+       0
+      ],
+      [
+       "0319",
+       0
+      ],
+      [
+       "0300",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0302",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "00E0 0316 0317 0318 0319 0301 0302",
+     "expected_pairs": [
+      [
+       "00E0",
+       -1
+      ],
+      [
+       "0316",
+       0
+      ],
+      [
+       "0317",
+       0
+      ],
+      [
+       "0318",
+       0
+      ],
+      [
+       "0319",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0302",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00E0",
+       -1
+      ],
+      [
+       "0316",
+       0
+      ],
+      [
+       "0317",
+       0
+      ],
+      [
+       "0318",
+       0
+      ],
+      [
+       "0319",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0302",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0061 0316 0317 0318 0319 0300 0301 0302",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0316",
+       0
+      ],
+      [
+       "0317",
+       0
+      ],
+      [
+       "0318",
+       0
+      ],
+      [
+       "0319",
+       0
+      ],
+      [
+       "0300",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0302",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0316",
+       0
+      ],
+      [
+       "0317",
+       0
+      ],
+      [
+       "0318",
+       0
+      ],
+      [
+       "0319",
+       0
+      ],
+      [
+       "0300",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0302",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "comb-cgj",
+   "input": "0061 0301 034F 0301",
+   "input_chars": 4,
+   "note": "CGJ (ccc 0, no decomposition) blocks; second acute does not compose",
+   "forms": {
+    "NFC": {
+     "expected_output": "00E1 034F 0301",
+     "expected_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "034F",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "034F",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0061 0301 034F 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "034F",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "034F",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "00E1 034F 0301",
+     "expected_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "034F",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "034F",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0061 0301 034F 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "034F",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "034F",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "hangul-LV",
+   "input": "AC00",
+   "input_chars": 1,
+   "note": "U+AC00 -> 1100 1161",
+   "forms": {
+    "NFC": {
+     "expected_output": "AC00",
+     "expected_pairs": [
+      [
+       "AC00",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "AC00",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1100 1161",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "AC00",
+     "expected_pairs": [
+      [
+       "AC00",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "AC00",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "1100 1161",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "hangul-LVT",
+   "input": "AC01",
+   "input_chars": 1,
+   "note": "U+AC01 -> 1100 1161 11A8",
+   "forms": {
+    "NFC": {
+     "expected_output": "AC01",
+     "expected_pairs": [
+      [
+       "AC01",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "AC01",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1100 1161 11A8",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11A8",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11A8",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "AC01",
+     "expected_pairs": [
+      [
+       "AC01",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "AC01",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "1100 1161 11A8",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11A8",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11A8",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "hangul-jamo-LV-compose",
+   "input": "1100 1161",
+   "input_chars": 2,
+   "note": "L + V -> AC00 (2->1)",
+   "forms": {
+    "NFC": {
+     "expected_output": "AC00",
+     "expected_pairs": [
+      [
+       "AC00",
+       -1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "AC00",
+       -1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1100 1161",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "AC00",
+     "expected_pairs": [
+      [
+       "AC00",
+       -1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "AC00",
+       -1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "1100 1161",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "hangul-jamo-LVT-compose",
+   "input": "1100 1161 11A8",
+   "input_chars": 3,
+   "note": "L + V + T -> AC01 (3->1, chained)",
+   "forms": {
+    "NFC": {
+     "expected_output": "AC01",
+     "expected_pairs": [
+      [
+       "AC01",
+       -2
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "AC01",
+       -2
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1100 1161 11A8",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       0
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       0
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "AC01",
+     "expected_pairs": [
+      [
+       "AC01",
+       -2
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "AC01",
+       -2
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "1100 1161 11A8",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       0
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       0
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "hangul-LV-plus-T",
+   "input": "AC00 11A8",
+   "input_chars": 2,
+   "note": "LV syllable + T -> AC01",
+   "forms": {
+    "NFC": {
+     "expected_output": "AC01",
+     "expected_pairs": [
+      [
+       "AC01",
+       -1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "AC01",
+       -1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1100 1161 11A8",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "AC01",
+     "expected_pairs": [
+      [
+       "AC01",
+       -1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "AC01",
+       -1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "1100 1161 11A8",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "hangul-LVT-plus-T",
+   "input": "AC01 11A8",
+   "input_chars": 2,
+   "note": "LVT + T: no composition (only LV composes with T)",
+   "forms": {
+    "NFC": {
+     "expected_output": "AC01 11A8",
+     "expected_pairs": [
+      [
+       "AC01",
+       0
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "AC01",
+       0
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1100 1161 11A8 11A8",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11A8",
+       1
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11A8",
+       1
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "AC01 11A8",
+     "expected_pairs": [
+      [
+       "AC01",
+       0
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "AC01",
+       0
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "1100 1161 11A8 11A8",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11A8",
+       1
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11A8",
+       1
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "hangul-T-base-no-compose",
+   "input": "1100 1161 11A7",
+   "input_chars": 3,
+   "note": "U+11A7 is T_BASE (filler); never composes",
+   "forms": {
+    "NFC": {
+     "expected_output": "AC00 11A7",
+     "expected_pairs": [
+      [
+       "AC00",
+       -1
+      ],
+      [
+       "11A7",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "AC00",
+       -1
+      ],
+      [
+       "11A7",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1100 1161 11A7",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       0
+      ],
+      [
+       "11A7",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       0
+      ],
+      [
+       "11A7",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "AC00 11A7",
+     "expected_pairs": [
+      [
+       "AC00",
+       -1
+      ],
+      [
+       "11A7",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "AC00",
+       -1
+      ],
+      [
+       "11A7",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "1100 1161 11A7",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       0
+      ],
+      [
+       "11A7",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       0
+      ],
+      [
+       "11A7",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "hangul-word",
+   "input": "D55C AE00",
+   "input_chars": 2,
+   "note": "hangul word (2 LVT syllables)",
+   "forms": {
+    "NFC": {
+     "expected_output": "D55C AE00",
+     "expected_pairs": [
+      [
+       "D55C",
+       0
+      ],
+      [
+       "AE00",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "D55C",
+       0
+      ],
+      [
+       "AE00",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1112 1161 11AB 1100 1173 11AF",
+     "expected_pairs": [
+      [
+       "1112",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11AB",
+       1
+      ],
+      [
+       "1100",
+       0
+      ],
+      [
+       "1173",
+       1
+      ],
+      [
+       "11AF",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1112",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11AB",
+       1
+      ],
+      [
+       "1100",
+       0
+      ],
+      [
+       "1173",
+       1
+      ],
+      [
+       "11AF",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "D55C AE00",
+     "expected_pairs": [
+      [
+       "D55C",
+       0
+      ],
+      [
+       "AE00",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "D55C",
+       0
+      ],
+      [
+       "AE00",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "1112 1161 11AB 1100 1173 11AF",
+     "expected_pairs": [
+      [
+       "1112",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11AB",
+       1
+      ],
+      [
+       "1100",
+       0
+      ],
+      [
+       "1173",
+       1
+      ],
+      [
+       "11AF",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1112",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11AB",
+       1
+      ],
+      [
+       "1100",
+       0
+      ],
+      [
+       "1173",
+       1
+      ],
+      [
+       "11AF",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "hangul-L-only",
+   "input": "1100",
+   "input_chars": 1,
+   "note": "lone choseong",
+   "forms": {
+    "NFC": {
+     "expected_output": "1100",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1100",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "1100",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "1100",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "hangul-V-T-no-L",
+   "input": "1161 11A8",
+   "input_chars": 2,
+   "note": "V + T without L: no composition",
+   "forms": {
+    "NFC": {
+     "expected_output": "1161 11A8",
+     "expected_pairs": [
+      [
+       "1161",
+       0
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1161",
+       0
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1161 11A8",
+     "expected_pairs": [
+      [
+       "1161",
+       0
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1161",
+       0
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "1161 11A8",
+     "expected_pairs": [
+      [
+       "1161",
+       0
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1161",
+       0
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "1161 11A8",
+     "expected_pairs": [
+      [
+       "1161",
+       0
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1161",
+       0
+      ],
+      [
+       "11A8",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "hangul-compat-jamo",
+   "input": "3131",
+   "input_chars": 1,
+   "note": "HANGUL LETTER KIYEOK (compat) -> NFKC 1100",
+   "forms": {
+    "NFC": {
+     "expected_output": "3131",
+     "expected_pairs": [
+      [
+       "3131",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "3131",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "3131",
+     "expected_pairs": [
+      [
+       "3131",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "3131",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "1100",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "1100",
+     "expected_pairs": [
+      [
+       "1100",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1100",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "hangul-last-syllable",
+   "input": "D7A3",
+   "input_chars": 1,
+   "note": "last precomposed syllable",
+   "forms": {
+    "NFC": {
+     "expected_output": "D7A3",
+     "expected_pairs": [
+      [
+       "D7A3",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "D7A3",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1112 1175 11C2",
+     "expected_pairs": [
+      [
+       "1112",
+       0
+      ],
+      [
+       "1175",
+       1
+      ],
+      [
+       "11C2",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1112",
+       0
+      ],
+      [
+       "1175",
+       1
+      ],
+      [
+       "11C2",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "D7A3",
+     "expected_pairs": [
+      [
+       "D7A3",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "D7A3",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "1112 1175 11C2",
+     "expected_pairs": [
+      [
+       "1112",
+       0
+      ],
+      [
+       "1175",
+       1
+      ],
+      [
+       "11C2",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1112",
+       0
+      ],
+      [
+       "1175",
+       1
+      ],
+      [
+       "11C2",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "compat-fi-ligature",
+   "input": "FB01",
+   "input_chars": 1,
+   "note": "LATIN SMALL LIGATURE FI -> f i under NFK* (1->2); canonical forms unchanged",
+   "forms": {
+    "NFC": {
+     "expected_output": "FB01",
+     "expected_pairs": [
+      [
+       "FB01",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "FB01",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "FB01",
+     "expected_pairs": [
+      [
+       "FB01",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "FB01",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0066 0069",
+     "expected_pairs": [
+      [
+       "0066",
+       0
+      ],
+      [
+       "0069",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0066",
+       0
+      ],
+      [
+       "0069",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0066 0069",
+     "expected_pairs": [
+      [
+       "0066",
+       0
+      ],
+      [
+       "0069",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0066",
+       0
+      ],
+      [
+       "0069",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "compat-ffi-ligature",
+   "input": "FB03",
+   "input_chars": 1,
+   "note": "ffi -> f f i (1->3)",
+   "forms": {
+    "NFC": {
+     "expected_output": "FB03",
+     "expected_pairs": [
+      [
+       "FB03",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "FB03",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "FB03",
+     "expected_pairs": [
+      [
+       "FB03",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "FB03",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0066 0066 0069",
+     "expected_pairs": [
+      [
+       "0066",
+       0
+      ],
+      [
+       "0066",
+       1
+      ],
+      [
+       "0069",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0066",
+       0
+      ],
+      [
+       "0066",
+       1
+      ],
+      [
+       "0069",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0066 0066 0069",
+     "expected_pairs": [
+      [
+       "0066",
+       0
+      ],
+      [
+       "0066",
+       1
+      ],
+      [
+       "0069",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0066",
+       0
+      ],
+      [
+       "0066",
+       1
+      ],
+      [
+       "0069",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "compat-circled-one",
+   "input": "2460",
+   "input_chars": 1,
+   "note": "CIRCLED DIGIT ONE -> 1",
+   "forms": {
+    "NFC": {
+     "expected_output": "2460",
+     "expected_pairs": [
+      [
+       "2460",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "2460",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "2460",
+     "expected_pairs": [
+      [
+       "2460",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "2460",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0031",
+     "expected_pairs": [
+      [
+       "0031",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0031",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0031",
+     "expected_pairs": [
+      [
+       "0031",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0031",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "compat-one-half",
+   "input": "00BD",
+   "input_chars": 1,
+   "note": "VULGAR FRACTION ONE HALF -> 1 2044 2",
+   "forms": {
+    "NFC": {
+     "expected_output": "00BD",
+     "expected_pairs": [
+      [
+       "00BD",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00BD",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "00BD",
+     "expected_pairs": [
+      [
+       "00BD",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00BD",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0031 2044 0032",
+     "expected_pairs": [
+      [
+       "0031",
+       0
+      ],
+      [
+       "2044",
+       1
+      ],
+      [
+       "0032",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0031",
+       0
+      ],
+      [
+       "2044",
+       1
+      ],
+      [
+       "0032",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0031 2044 0032",
+     "expected_pairs": [
+      [
+       "0031",
+       0
+      ],
+      [
+       "2044",
+       1
+      ],
+      [
+       "0032",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0031",
+       0
+      ],
+      [
+       "2044",
+       1
+      ],
+      [
+       "0032",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "compat-roman-eight",
+   "input": "2167",
+   "input_chars": 1,
+   "note": "ROMAN NUMERAL EIGHT -> V I I I (1->4)",
+   "forms": {
+    "NFC": {
+     "expected_output": "2167",
+     "expected_pairs": [
+      [
+       "2167",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "2167",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "2167",
+     "expected_pairs": [
+      [
+       "2167",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "2167",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0056 0049 0049 0049",
+     "expected_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0049",
+       1
+      ],
+      [
+       "0049",
+       1
+      ],
+      [
+       "0049",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0049",
+       1
+      ],
+      [
+       "0049",
+       1
+      ],
+      [
+       "0049",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0056 0049 0049 0049",
+     "expected_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0049",
+       1
+      ],
+      [
+       "0049",
+       1
+      ],
+      [
+       "0049",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0049",
+       1
+      ],
+      [
+       "0049",
+       1
+      ],
+      [
+       "0049",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "compat-nbsp",
+   "input": "00A0",
+   "input_chars": 1,
+   "note": "NO-BREAK SPACE -> SPACE",
+   "forms": {
+    "NFC": {
+     "expected_output": "00A0",
+     "expected_pairs": [
+      [
+       "00A0",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00A0",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "00A0",
+     "expected_pairs": [
+      [
+       "00A0",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00A0",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0020",
+     "expected_pairs": [
+      [
+       "0020",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0020",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0020",
+     "expected_pairs": [
+      [
+       "0020",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0020",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "compat-squared-kA",
+   "input": "3384",
+   "input_chars": 1,
+   "note": "SQUARE KA -> k A",
+   "forms": {
+    "NFC": {
+     "expected_output": "3384",
+     "expected_pairs": [
+      [
+       "3384",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "3384",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "3384",
+     "expected_pairs": [
+      [
+       "3384",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "3384",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "006B 0041",
+     "expected_pairs": [
+      [
+       "006B",
+       0
+      ],
+      [
+       "0041",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "006B",
+       0
+      ],
+      [
+       "0041",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "006B 0041",
+     "expected_pairs": [
+      [
+       "006B",
+       0
+      ],
+      [
+       "0041",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "006B",
+       0
+      ],
+      [
+       "0041",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "compat-square-apaato",
+   "input": "3300",
+   "input_chars": 1,
+   "note": "SQUARE APAATO -> 30A2 30D1 30FC 30C8 (with 30D1 = 30CF 309A recomposed): NFKD 1->5, NFKC 1->4",
+   "forms": {
+    "NFC": {
+     "expected_output": "3300",
+     "expected_pairs": [
+      [
+       "3300",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "3300",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "3300",
+     "expected_pairs": [
+      [
+       "3300",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "3300",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "30A2 30D1 30FC 30C8",
+     "expected_pairs": [
+      [
+       "30A2",
+       0
+      ],
+      [
+       "30D1",
+       1
+      ],
+      [
+       "30FC",
+       1
+      ],
+      [
+       "30C8",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "30A2",
+       0
+      ],
+      [
+       "30D1",
+       1
+      ],
+      [
+       "30FC",
+       1
+      ],
+      [
+       "30C8",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "30A2 30CF 309A 30FC 30C8",
+     "expected_pairs": [
+      [
+       "30A2",
+       0
+      ],
+      [
+       "30CF",
+       1
+      ],
+      [
+       "309A",
+       1
+      ],
+      [
+       "30FC",
+       1
+      ],
+      [
+       "30C8",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "30A2",
+       0
+      ],
+      [
+       "30CF",
+       1
+      ],
+      [
+       "309A",
+       1
+      ],
+      [
+       "30FC",
+       1
+      ],
+      [
+       "30C8",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "compat-arabic-ligature-FDFA",
+   "input": "FDFA",
+   "input_chars": 1,
+   "note": "ARABIC LIGATURE SALLALLAHOU ALAYHE WASALLAM -> 18 code points",
+   "forms": {
+    "NFC": {
+     "expected_output": "FDFA",
+     "expected_pairs": [
+      [
+       "FDFA",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "FDFA",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "FDFA",
+     "expected_pairs": [
+      [
+       "FDFA",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "FDFA",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0635 0644 0649 0020 0627 0644 0644 0647 0020 0639 0644 064A 0647 0020 0648 0633 0644 0645",
+     "expected_pairs": [
+      [
+       "0635",
+       0
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "0649",
+       1
+      ],
+      [
+       "0020",
+       1
+      ],
+      [
+       "0627",
+       1
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "0647",
+       1
+      ],
+      [
+       "0020",
+       1
+      ],
+      [
+       "0639",
+       1
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "064A",
+       1
+      ],
+      [
+       "0647",
+       1
+      ],
+      [
+       "0020",
+       1
+      ],
+      [
+       "0648",
+       1
+      ],
+      [
+       "0633",
+       1
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "0645",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0635",
+       0
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "0649",
+       1
+      ],
+      [
+       "0020",
+       1
+      ],
+      [
+       "0627",
+       1
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "0647",
+       1
+      ],
+      [
+       "0020",
+       1
+      ],
+      [
+       "0639",
+       1
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "064A",
+       1
+      ],
+      [
+       "0647",
+       1
+      ],
+      [
+       "0020",
+       1
+      ],
+      [
+       "0648",
+       1
+      ],
+      [
+       "0633",
+       1
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "0645",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0635 0644 0649 0020 0627 0644 0644 0647 0020 0639 0644 064A 0647 0020 0648 0633 0644 0645",
+     "expected_pairs": [
+      [
+       "0635",
+       0
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "0649",
+       1
+      ],
+      [
+       "0020",
+       1
+      ],
+      [
+       "0627",
+       1
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "0647",
+       1
+      ],
+      [
+       "0020",
+       1
+      ],
+      [
+       "0639",
+       1
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "064A",
+       1
+      ],
+      [
+       "0647",
+       1
+      ],
+      [
+       "0020",
+       1
+      ],
+      [
+       "0648",
+       1
+      ],
+      [
+       "0633",
+       1
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "0645",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0635",
+       0
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "0649",
+       1
+      ],
+      [
+       "0020",
+       1
+      ],
+      [
+       "0627",
+       1
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "0647",
+       1
+      ],
+      [
+       "0020",
+       1
+      ],
+      [
+       "0639",
+       1
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "064A",
+       1
+      ],
+      [
+       "0647",
+       1
+      ],
+      [
+       "0020",
+       1
+      ],
+      [
+       "0648",
+       1
+      ],
+      [
+       "0633",
+       1
+      ],
+      [
+       "0644",
+       1
+      ],
+      [
+       "0645",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "compat-long-s-dot-1E9B",
+   "input": "1E9B 0323",
+   "input_chars": 2,
+   "note": "UAX15 worked example: NFD 017F 0323 0307; NFKC 1E69",
+   "forms": {
+    "NFC": {
+     "expected_output": "1E9B 0323",
+     "expected_pairs": [
+      [
+       "1E9B",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1E9B",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "017F 0323 0307",
+     "expected_pairs": [
+      [
+       "017F",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0307",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "017F",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0307",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "1E69",
+     "expected_pairs": [
+      [
+       "1E69",
+       -1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1E69",
+       -1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0073 0323 0307",
+     "expected_pairs": [
+      [
+       "0073",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0307",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0073",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0307",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "compat-halfwidth-katakana-dakuten",
+   "input": "FF76 FF9E",
+   "input_chars": 2,
+   "note": "halfwidth KA + halfwidth dakuten: NFKC -> 30AC (2->1 after 1->1 each)",
+   "forms": {
+    "NFC": {
+     "expected_output": "FF76 FF9E",
+     "expected_pairs": [
+      [
+       "FF76",
+       0
+      ],
+      [
+       "FF9E",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "FF76",
+       0
+      ],
+      [
+       "FF9E",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "FF76 FF9E",
+     "expected_pairs": [
+      [
+       "FF76",
+       0
+      ],
+      [
+       "FF9E",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "FF76",
+       0
+      ],
+      [
+       "FF9E",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "30AC",
+     "expected_pairs": [
+      [
+       "30AC",
+       -1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "30AC",
+       -1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "30AB 3099",
+     "expected_pairs": [
+      [
+       "30AB",
+       0
+      ],
+      [
+       "3099",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "30AB",
+       0
+      ],
+      [
+       "3099",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "compat-superscript-two",
+   "input": "00B2",
+   "input_chars": 1,
+   "note": "SUPERSCRIPT TWO -> 2",
+   "forms": {
+    "NFC": {
+     "expected_output": "00B2",
+     "expected_pairs": [
+      [
+       "00B2",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00B2",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "00B2",
+     "expected_pairs": [
+      [
+       "00B2",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00B2",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0032",
+     "expected_pairs": [
+      [
+       "0032",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0032",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0032",
+     "expected_pairs": [
+      [
+       "0032",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0032",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "compat-fullwidth-A",
+   "input": "FF21",
+   "input_chars": 1,
+   "note": "FULLWIDTH A -> A",
+   "forms": {
+    "NFC": {
+     "expected_output": "FF21",
+     "expected_pairs": [
+      [
+       "FF21",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "FF21",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "FF21",
+     "expected_pairs": [
+      [
+       "FF21",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "FF21",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0041",
+     "expected_pairs": [
+      [
+       "0041",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0041",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0041",
+     "expected_pairs": [
+      [
+       "0041",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0041",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "compat-thai-sara-am",
+   "input": "0E33",
+   "input_chars": 1,
+   "note": "THAI SARA AM -> 0E4D 0E32 (compat)",
+   "forms": {
+    "NFC": {
+     "expected_output": "0E33",
+     "expected_pairs": [
+      [
+       "0E33",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0E33",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0E33",
+     "expected_pairs": [
+      [
+       "0E33",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0E33",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0E4D 0E32",
+     "expected_pairs": [
+      [
+       "0E4D",
+       0
+      ],
+      [
+       "0E32",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0E4D",
+       0
+      ],
+      [
+       "0E32",
+       1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0E4D 0E32",
+     "expected_pairs": [
+      [
+       "0E4D",
+       0
+      ],
+      [
+       "0E32",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0E4D",
+       0
+      ],
+      [
+       "0E32",
+       1
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "compat-mu-micro",
+   "input": "00B5",
+   "input_chars": 1,
+   "note": "MICRO SIGN -> 03BC (compat)",
+   "forms": {
+    "NFC": {
+     "expected_output": "00B5",
+     "expected_pairs": [
+      [
+       "00B5",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00B5",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "00B5",
+     "expected_pairs": [
+      [
+       "00B5",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00B5",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "03BC",
+     "expected_pairs": [
+      [
+       "03BC",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "03BC",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "03BC",
+     "expected_pairs": [
+      [
+       "03BC",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "03BC",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "compat-kelvin",
+   "input": "212A",
+   "input_chars": 1,
+   "note": "KELVIN SIGN -> K (canonical singleton)",
+   "forms": {
+    "NFC": {
+     "expected_output": "004B",
+     "expected_pairs": [
+      [
+       "004B",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "004B",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "004B",
+     "expected_pairs": [
+      [
+       "004B",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "004B",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "004B",
+     "expected_pairs": [
+      [
+       "004B",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "004B",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "004B",
+     "expected_pairs": [
+      [
+       "004B",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "004B",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "compat-combining-mark-compat",
+   "input": "0340 0341",
+   "input_chars": 2,
+   "note": "two singleton tone marks -> 0300 0301",
+   "forms": {
+    "NFC": {
+     "expected_output": "0300 0301",
+     "expected_pairs": [
+      [
+       "0300",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0300",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0300 0301",
+     "expected_pairs": [
+      [
+       "0300",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0300",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0300 0301",
+     "expected_pairs": [
+      [
+       "0300",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0300",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0300 0301",
+     "expected_pairs": [
+      [
+       "0300",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0300",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "compat-font-digit-1FBF0",
+   "input": "1FBF0",
+   "input_chars": 1,
+   "note": "SEGMENTED DIGIT ZERO (Unicode 13): <font> 0030",
+   "forms": {
+    "NFC": {
+     "expected_output": "1FBF0",
+     "expected_pairs": [
+      [
+       "1FBF0",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1FBF0",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1FBF0",
+     "expected_pairs": [
+      [
+       "1FBF0",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1FBF0",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0030",
+     "expected_pairs": [
+      [
+       "0030",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1FBF0",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKD": {
+     "expected_output": "0030",
+     "expected_pairs": [
+      [
+       "0030",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1FBF0",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  },
+  {
+   "label": "emoji-family-zwj",
+   "input": "1F468 200D 1F469 200D 1F467 200D 1F466",
+   "input_chars": 7,
+   "note": "family ZWJ sequence",
+   "forms": {
+    "NFC": {
+     "expected_output": "1F468 200D 1F469 200D 1F467 200D 1F466",
+     "expected_pairs": [
+      [
+       "1F468",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F469",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F467",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F466",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F468",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F469",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F467",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F466",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1F468 200D 1F469 200D 1F467 200D 1F466",
+     "expected_pairs": [
+      [
+       "1F468",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F469",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F467",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F466",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F468",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F469",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F467",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F466",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "1F468 200D 1F469 200D 1F467 200D 1F466",
+     "expected_pairs": [
+      [
+       "1F468",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F469",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F467",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F466",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F468",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F469",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F467",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F466",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "1F468 200D 1F469 200D 1F467 200D 1F466",
+     "expected_pairs": [
+      [
+       "1F468",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F469",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F467",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F466",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F468",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F469",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F467",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F466",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "emoji-flag-vs16",
+   "input": "1F3F3 FE0F 200D 1F308",
+   "input_chars": 4,
+   "note": "rainbow flag with VS16 and ZWJ",
+   "forms": {
+    "NFC": {
+     "expected_output": "1F3F3 FE0F 200D 1F308",
+     "expected_pairs": [
+      [
+       "1F3F3",
+       0
+      ],
+      [
+       "FE0F",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F308",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F3F3",
+       0
+      ],
+      [
+       "FE0F",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F308",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1F3F3 FE0F 200D 1F308",
+     "expected_pairs": [
+      [
+       "1F3F3",
+       0
+      ],
+      [
+       "FE0F",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F308",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F3F3",
+       0
+      ],
+      [
+       "FE0F",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F308",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "1F3F3 FE0F 200D 1F308",
+     "expected_pairs": [
+      [
+       "1F3F3",
+       0
+      ],
+      [
+       "FE0F",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F308",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F3F3",
+       0
+      ],
+      [
+       "FE0F",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F308",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "1F3F3 FE0F 200D 1F308",
+     "expected_pairs": [
+      [
+       "1F3F3",
+       0
+      ],
+      [
+       "FE0F",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F308",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F3F3",
+       0
+      ],
+      [
+       "FE0F",
+       0
+      ],
+      [
+       "200D",
+       0
+      ],
+      [
+       "1F308",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "emoji-skin-tone",
+   "input": "1F44D 1F3FD",
+   "input_chars": 2,
+   "note": "thumbs up + medium skin tone modifier",
+   "forms": {
+    "NFC": {
+     "expected_output": "1F44D 1F3FD",
+     "expected_pairs": [
+      [
+       "1F44D",
+       0
+      ],
+      [
+       "1F3FD",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F44D",
+       0
+      ],
+      [
+       "1F3FD",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1F44D 1F3FD",
+     "expected_pairs": [
+      [
+       "1F44D",
+       0
+      ],
+      [
+       "1F3FD",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F44D",
+       0
+      ],
+      [
+       "1F3FD",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "1F44D 1F3FD",
+     "expected_pairs": [
+      [
+       "1F44D",
+       0
+      ],
+      [
+       "1F3FD",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F44D",
+       0
+      ],
+      [
+       "1F3FD",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "1F44D 1F3FD",
+     "expected_pairs": [
+      [
+       "1F44D",
+       0
+      ],
+      [
+       "1F3FD",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F44D",
+       0
+      ],
+      [
+       "1F3FD",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "emoji-keycap",
+   "input": "0031 FE0F 20E3",
+   "input_chars": 3,
+   "note": "keycap 1: U+20E3 is ccc 0, VS16 ccc 0; unchanged",
+   "forms": {
+    "NFC": {
+     "expected_output": "0031 FE0F 20E3",
+     "expected_pairs": [
+      [
+       "0031",
+       0
+      ],
+      [
+       "FE0F",
+       0
+      ],
+      [
+       "20E3",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0031",
+       0
+      ],
+      [
+       "FE0F",
+       0
+      ],
+      [
+       "20E3",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0031 FE0F 20E3",
+     "expected_pairs": [
+      [
+       "0031",
+       0
+      ],
+      [
+       "FE0F",
+       0
+      ],
+      [
+       "20E3",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0031",
+       0
+      ],
+      [
+       "FE0F",
+       0
+      ],
+      [
+       "20E3",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0031 FE0F 20E3",
+     "expected_pairs": [
+      [
+       "0031",
+       0
+      ],
+      [
+       "FE0F",
+       0
+      ],
+      [
+       "20E3",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0031",
+       0
+      ],
+      [
+       "FE0F",
+       0
+      ],
+      [
+       "20E3",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0031 FE0F 20E3",
+     "expected_pairs": [
+      [
+       "0031",
+       0
+      ],
+      [
+       "FE0F",
+       0
+      ],
+      [
+       "20E3",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0031",
+       0
+      ],
+      [
+       "FE0F",
+       0
+      ],
+      [
+       "20E3",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "emoji-regional-indicators",
+   "input": "1F1FA 1F1F8",
+   "input_chars": 2,
+   "note": "US flag regional indicator pair",
+   "forms": {
+    "NFC": {
+     "expected_output": "1F1FA 1F1F8",
+     "expected_pairs": [
+      [
+       "1F1FA",
+       0
+      ],
+      [
+       "1F1F8",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F1FA",
+       0
+      ],
+      [
+       "1F1F8",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1F1FA 1F1F8",
+     "expected_pairs": [
+      [
+       "1F1FA",
+       0
+      ],
+      [
+       "1F1F8",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F1FA",
+       0
+      ],
+      [
+       "1F1F8",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "1F1FA 1F1F8",
+     "expected_pairs": [
+      [
+       "1F1FA",
+       0
+      ],
+      [
+       "1F1F8",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F1FA",
+       0
+      ],
+      [
+       "1F1F8",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "1F1FA 1F1F8",
+     "expected_pairs": [
+      [
+       "1F1FA",
+       0
+      ],
+      [
+       "1F1F8",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F1FA",
+       0
+      ],
+      [
+       "1F1F8",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "emoji-text-vs15",
+   "input": "2764 FE0E",
+   "input_chars": 2,
+   "note": "heart with text presentation selector",
+   "forms": {
+    "NFC": {
+     "expected_output": "2764 FE0E",
+     "expected_pairs": [
+      [
+       "2764",
+       0
+      ],
+      [
+       "FE0E",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "2764",
+       0
+      ],
+      [
+       "FE0E",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "2764 FE0E",
+     "expected_pairs": [
+      [
+       "2764",
+       0
+      ],
+      [
+       "FE0E",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "2764",
+       0
+      ],
+      [
+       "FE0E",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "2764 FE0E",
+     "expected_pairs": [
+      [
+       "2764",
+       0
+      ],
+      [
+       "FE0E",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "2764",
+       0
+      ],
+      [
+       "FE0E",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "2764 FE0E",
+     "expected_pairs": [
+      [
+       "2764",
+       0
+      ],
+      [
+       "FE0E",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "2764",
+       0
+      ],
+      [
+       "FE0E",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "mixed-latin-greek-cyrillic",
+   "input": "0041 0301 03B1 0301 0430 0301",
+   "input_chars": 6,
+   "note": "A-acute, alpha-tonos (-> 03AC), a-acute (no Cyrillic precomposed -> stays)",
+   "forms": {
+    "NFC": {
+     "expected_output": "00C1 03AC 0430 0301",
+     "expected_pairs": [
+      [
+       "00C1",
+       -1
+      ],
+      [
+       "03AC",
+       -1
+      ],
+      [
+       "0430",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00C1",
+       -1
+      ],
+      [
+       "03AC",
+       -1
+      ],
+      [
+       "0430",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0041 0301 03B1 0301 0430 0301",
+     "expected_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "03B1",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0430",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "03B1",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0430",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "00C1 03AC 0430 0301",
+     "expected_pairs": [
+      [
+       "00C1",
+       -1
+      ],
+      [
+       "03AC",
+       -1
+      ],
+      [
+       "0430",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00C1",
+       -1
+      ],
+      [
+       "03AC",
+       -1
+      ],
+      [
+       "0430",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0041 0301 03B1 0301 0430 0301",
+     "expected_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "03B1",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0430",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0041",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "03B1",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "0430",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "mixed-devanagari-word",
+   "input": "0915 094D 0937",
+   "input_chars": 3,
+   "note": "ka virama ssa (ksa conjunct), unchanged",
+   "forms": {
+    "NFC": {
+     "expected_output": "0915 094D 0937",
+     "expected_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "094D",
+       0
+      ],
+      [
+       "0937",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "094D",
+       0
+      ],
+      [
+       "0937",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0915 094D 0937",
+     "expected_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "094D",
+       0
+      ],
+      [
+       "0937",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "094D",
+       0
+      ],
+      [
+       "0937",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0915 094D 0937",
+     "expected_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "094D",
+       0
+      ],
+      [
+       "0937",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "094D",
+       0
+      ],
+      [
+       "0937",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0915 094D 0937",
+     "expected_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "094D",
+       0
+      ],
+      [
+       "0937",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "094D",
+       0
+      ],
+      [
+       "0937",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "mixed-devanagari-nukta",
+   "input": "0915 093C",
+   "input_chars": 2,
+   "note": "ka + nukta: composition excluded, stays 2",
+   "forms": {
+    "NFC": {
+     "expected_output": "0915 093C",
+     "expected_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "093C",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "093C",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0915 093C",
+     "expected_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "093C",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "093C",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0915 093C",
+     "expected_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "093C",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "093C",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0915 093C",
+     "expected_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "093C",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0915",
+       0
+      ],
+      [
+       "093C",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "mixed-vietnamese-sentence",
+   "input": "0056 0069 1EC7 0074 0020 004E 0061 006D",
+   "input_chars": 8,
+   "note": "\"Vi\u1ec7t Nam\" precomposed",
+   "forms": {
+    "NFC": {
+     "expected_output": "0056 0069 1EC7 0074 0020 004E 0061 006D",
+     "expected_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0069",
+       0
+      ],
+      [
+       "1EC7",
+       0
+      ],
+      [
+       "0074",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004E",
+       0
+      ],
+      [
+       "0061",
+       0
+      ],
+      [
+       "006D",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0069",
+       0
+      ],
+      [
+       "1EC7",
+       0
+      ],
+      [
+       "0074",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004E",
+       0
+      ],
+      [
+       "0061",
+       0
+      ],
+      [
+       "006D",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0056 0069 0065 0323 0302 0074 0020 004E 0061 006D",
+     "expected_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0069",
+       0
+      ],
+      [
+       "0065",
+       0
+      ],
+      [
+       "0323",
+       1
+      ],
+      [
+       "0302",
+       1
+      ],
+      [
+       "0074",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004E",
+       0
+      ],
+      [
+       "0061",
+       0
+      ],
+      [
+       "006D",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0069",
+       0
+      ],
+      [
+       "0065",
+       0
+      ],
+      [
+       "0323",
+       1
+      ],
+      [
+       "0302",
+       1
+      ],
+      [
+       "0074",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004E",
+       0
+      ],
+      [
+       "0061",
+       0
+      ],
+      [
+       "006D",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0056 0069 1EC7 0074 0020 004E 0061 006D",
+     "expected_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0069",
+       0
+      ],
+      [
+       "1EC7",
+       0
+      ],
+      [
+       "0074",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004E",
+       0
+      ],
+      [
+       "0061",
+       0
+      ],
+      [
+       "006D",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0069",
+       0
+      ],
+      [
+       "1EC7",
+       0
+      ],
+      [
+       "0074",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004E",
+       0
+      ],
+      [
+       "0061",
+       0
+      ],
+      [
+       "006D",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0056 0069 0065 0323 0302 0074 0020 004E 0061 006D",
+     "expected_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0069",
+       0
+      ],
+      [
+       "0065",
+       0
+      ],
+      [
+       "0323",
+       1
+      ],
+      [
+       "0302",
+       1
+      ],
+      [
+       "0074",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004E",
+       0
+      ],
+      [
+       "0061",
+       0
+      ],
+      [
+       "006D",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0069",
+       0
+      ],
+      [
+       "0065",
+       0
+      ],
+      [
+       "0323",
+       1
+      ],
+      [
+       "0302",
+       1
+      ],
+      [
+       "0074",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004E",
+       0
+      ],
+      [
+       "0061",
+       0
+      ],
+      [
+       "006D",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "mixed-vietnamese-decomposed",
+   "input": "0056 0069 0065 0323 0302 0074 0020 004E 0061 006D",
+   "input_chars": 10,
+   "note": "\"Vi\u1ec7t Nam\" fully decomposed",
+   "forms": {
+    "NFC": {
+     "expected_output": "0056 0069 1EC7 0074 0020 004E 0061 006D",
+     "expected_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0069",
+       0
+      ],
+      [
+       "1EC7",
+       -2
+      ],
+      [
+       "0074",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004E",
+       0
+      ],
+      [
+       "0061",
+       0
+      ],
+      [
+       "006D",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0069",
+       0
+      ],
+      [
+       "1EC7",
+       -2
+      ],
+      [
+       "0074",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004E",
+       0
+      ],
+      [
+       "0061",
+       0
+      ],
+      [
+       "006D",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0056 0069 0065 0323 0302 0074 0020 004E 0061 006D",
+     "expected_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0069",
+       0
+      ],
+      [
+       "0065",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0302",
+       0
+      ],
+      [
+       "0074",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004E",
+       0
+      ],
+      [
+       "0061",
+       0
+      ],
+      [
+       "006D",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0069",
+       0
+      ],
+      [
+       "0065",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0302",
+       0
+      ],
+      [
+       "0074",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004E",
+       0
+      ],
+      [
+       "0061",
+       0
+      ],
+      [
+       "006D",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0056 0069 1EC7 0074 0020 004E 0061 006D",
+     "expected_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0069",
+       0
+      ],
+      [
+       "1EC7",
+       -2
+      ],
+      [
+       "0074",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004E",
+       0
+      ],
+      [
+       "0061",
+       0
+      ],
+      [
+       "006D",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0069",
+       0
+      ],
+      [
+       "1EC7",
+       -2
+      ],
+      [
+       "0074",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004E",
+       0
+      ],
+      [
+       "0061",
+       0
+      ],
+      [
+       "006D",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0056 0069 0065 0323 0302 0074 0020 004E 0061 006D",
+     "expected_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0069",
+       0
+      ],
+      [
+       "0065",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0302",
+       0
+      ],
+      [
+       "0074",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004E",
+       0
+      ],
+      [
+       "0061",
+       0
+      ],
+      [
+       "006D",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0056",
+       0
+      ],
+      [
+       "0069",
+       0
+      ],
+      [
+       "0065",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0302",
+       0
+      ],
+      [
+       "0074",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004E",
+       0
+      ],
+      [
+       "0061",
+       0
+      ],
+      [
+       "006D",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "mixed-arabic-word",
+   "input": "0645 064F 062D 064E 0645 0651 064E 062F",
+   "input_chars": 8,
+   "note": "muhammad with harakat (shadda+fatha already ordered)",
+   "forms": {
+    "NFC": {
+     "expected_output": "0645 064F 062D 064E 0645 064E 0651 062F",
+     "expected_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064F",
+       0
+      ],
+      [
+       "062D",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ],
+      [
+       "062F",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064F",
+       0
+      ],
+      [
+       "062D",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ],
+      [
+       "062F",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0645 064F 062D 064E 0645 064E 0651 062F",
+     "expected_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064F",
+       0
+      ],
+      [
+       "062D",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ],
+      [
+       "062F",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064F",
+       0
+      ],
+      [
+       "062D",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ],
+      [
+       "062F",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0645 064F 062D 064E 0645 064E 0651 062F",
+     "expected_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064F",
+       0
+      ],
+      [
+       "062D",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ],
+      [
+       "062F",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064F",
+       0
+      ],
+      [
+       "062D",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ],
+      [
+       "062F",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0645 064F 062D 064E 0645 064E 0651 062F",
+     "expected_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064F",
+       0
+      ],
+      [
+       "062D",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ],
+      [
+       "062F",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0645",
+       0
+      ],
+      [
+       "064F",
+       0
+      ],
+      [
+       "062D",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0645",
+       0
+      ],
+      [
+       "064E",
+       0
+      ],
+      [
+       "0651",
+       0
+      ],
+      [
+       "062F",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "mixed-hebrew-pointed",
+   "input": "05E9 05C1 05B8 05DC 05D5 05B9 05DD",
+   "input_chars": 7,
+   "note": "shalom pointed; 05C1(24) 05B8(18) reorder",
+   "forms": {
+    "NFC": {
+     "expected_output": "05E9 05B8 05C1 05DC 05D5 05B9 05DD",
+     "expected_pairs": [
+      [
+       "05E9",
+       0
+      ],
+      [
+       "05B8",
+       0
+      ],
+      [
+       "05C1",
+       0
+      ],
+      [
+       "05DC",
+       0
+      ],
+      [
+       "05D5",
+       0
+      ],
+      [
+       "05B9",
+       0
+      ],
+      [
+       "05DD",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "05E9",
+       0
+      ],
+      [
+       "05B8",
+       0
+      ],
+      [
+       "05C1",
+       0
+      ],
+      [
+       "05DC",
+       0
+      ],
+      [
+       "05D5",
+       0
+      ],
+      [
+       "05B9",
+       0
+      ],
+      [
+       "05DD",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "05E9 05B8 05C1 05DC 05D5 05B9 05DD",
+     "expected_pairs": [
+      [
+       "05E9",
+       0
+      ],
+      [
+       "05B8",
+       0
+      ],
+      [
+       "05C1",
+       0
+      ],
+      [
+       "05DC",
+       0
+      ],
+      [
+       "05D5",
+       0
+      ],
+      [
+       "05B9",
+       0
+      ],
+      [
+       "05DD",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "05E9",
+       0
+      ],
+      [
+       "05B8",
+       0
+      ],
+      [
+       "05C1",
+       0
+      ],
+      [
+       "05DC",
+       0
+      ],
+      [
+       "05D5",
+       0
+      ],
+      [
+       "05B9",
+       0
+      ],
+      [
+       "05DD",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "05E9 05B8 05C1 05DC 05D5 05B9 05DD",
+     "expected_pairs": [
+      [
+       "05E9",
+       0
+      ],
+      [
+       "05B8",
+       0
+      ],
+      [
+       "05C1",
+       0
+      ],
+      [
+       "05DC",
+       0
+      ],
+      [
+       "05D5",
+       0
+      ],
+      [
+       "05B9",
+       0
+      ],
+      [
+       "05DD",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "05E9",
+       0
+      ],
+      [
+       "05B8",
+       0
+      ],
+      [
+       "05C1",
+       0
+      ],
+      [
+       "05DC",
+       0
+      ],
+      [
+       "05D5",
+       0
+      ],
+      [
+       "05B9",
+       0
+      ],
+      [
+       "05DD",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "05E9 05B8 05C1 05DC 05D5 05B9 05DD",
+     "expected_pairs": [
+      [
+       "05E9",
+       0
+      ],
+      [
+       "05B8",
+       0
+      ],
+      [
+       "05C1",
+       0
+      ],
+      [
+       "05DC",
+       0
+      ],
+      [
+       "05D5",
+       0
+      ],
+      [
+       "05B9",
+       0
+      ],
+      [
+       "05DD",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "05E9",
+       0
+      ],
+      [
+       "05B8",
+       0
+      ],
+      [
+       "05C1",
+       0
+      ],
+      [
+       "05DC",
+       0
+      ],
+      [
+       "05D5",
+       0
+      ],
+      [
+       "05B9",
+       0
+      ],
+      [
+       "05DD",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "mixed-japanese-mixed-width",
+   "input": "30AB 3099 FF76 FF9E",
+   "input_chars": 4,
+   "note": "full-width and half-width KA+dakuten",
+   "forms": {
+    "NFC": {
+     "expected_output": "30AC FF76 FF9E",
+     "expected_pairs": [
+      [
+       "30AC",
+       -1
+      ],
+      [
+       "FF76",
+       0
+      ],
+      [
+       "FF9E",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "30AC",
+       -1
+      ],
+      [
+       "FF76",
+       0
+      ],
+      [
+       "FF9E",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "30AB 3099 FF76 FF9E",
+     "expected_pairs": [
+      [
+       "30AB",
+       0
+      ],
+      [
+       "3099",
+       0
+      ],
+      [
+       "FF76",
+       0
+      ],
+      [
+       "FF9E",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "30AB",
+       0
+      ],
+      [
+       "3099",
+       0
+      ],
+      [
+       "FF76",
+       0
+      ],
+      [
+       "FF9E",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "30AC 30AC",
+     "expected_pairs": [
+      [
+       "30AC",
+       -1
+      ],
+      [
+       "30AC",
+       -1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "30AC",
+       -1
+      ],
+      [
+       "30AC",
+       -1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "30AB 3099 30AB 3099",
+     "expected_pairs": [
+      [
+       "30AB",
+       0
+      ],
+      [
+       "3099",
+       0
+      ],
+      [
+       "30AB",
+       0
+      ],
+      [
+       "3099",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "30AB",
+       0
+      ],
+      [
+       "3099",
+       0
+      ],
+      [
+       "30AB",
+       0
+      ],
+      [
+       "3099",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "mixed-korean-latin",
+   "input": "D55C 0041 030A 1100 1161",
+   "input_chars": 5,
+   "note": "hangul + Latin + jamo",
+   "forms": {
+    "NFC": {
+     "expected_output": "D55C 00C5 AC00",
+     "expected_pairs": [
+      [
+       "D55C",
+       0
+      ],
+      [
+       "00C5",
+       -1
+      ],
+      [
+       "AC00",
+       -1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "D55C",
+       0
+      ],
+      [
+       "00C5",
+       -1
+      ],
+      [
+       "AC00",
+       -1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1112 1161 11AB 0041 030A 1100 1161",
+     "expected_pairs": [
+      [
+       "1112",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11AB",
+       1
+      ],
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       0
+      ],
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1112",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11AB",
+       1
+      ],
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       0
+      ],
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "D55C 00C5 AC00",
+     "expected_pairs": [
+      [
+       "D55C",
+       0
+      ],
+      [
+       "00C5",
+       -1
+      ],
+      [
+       "AC00",
+       -1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "D55C",
+       0
+      ],
+      [
+       "00C5",
+       -1
+      ],
+      [
+       "AC00",
+       -1
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "1112 1161 11AB 0041 030A 1100 1161",
+     "expected_pairs": [
+      [
+       "1112",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11AB",
+       1
+      ],
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       0
+      ],
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1112",
+       0
+      ],
+      [
+       "1161",
+       1
+      ],
+      [
+       "11AB",
+       1
+      ],
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       0
+      ],
+      [
+       "1100",
+       0
+      ],
+      [
+       "1161",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "mixed-ascii-only",
+   "input": "0048 0065 006C 006C 006F 002C 0020 0077 006F 0072 006C 0064 0021",
+   "input_chars": 13,
+   "note": "ASCII fast path, identity",
+   "forms": {
+    "NFC": {
+     "expected_output": "0048 0065 006C 006C 006F 002C 0020 0077 006F 0072 006C 0064 0021",
+     "expected_pairs": [
+      [
+       "0048",
+       0
+      ],
+      [
+       "0065",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "006F",
+       0
+      ],
+      [
+       "002C",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "0077",
+       0
+      ],
+      [
+       "006F",
+       0
+      ],
+      [
+       "0072",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "0064",
+       0
+      ],
+      [
+       "0021",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0048",
+       0
+      ],
+      [
+       "0065",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "006F",
+       0
+      ],
+      [
+       "002C",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "0077",
+       0
+      ],
+      [
+       "006F",
+       0
+      ],
+      [
+       "0072",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "0064",
+       0
+      ],
+      [
+       "0021",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0048 0065 006C 006C 006F 002C 0020 0077 006F 0072 006C 0064 0021",
+     "expected_pairs": [
+      [
+       "0048",
+       0
+      ],
+      [
+       "0065",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "006F",
+       0
+      ],
+      [
+       "002C",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "0077",
+       0
+      ],
+      [
+       "006F",
+       0
+      ],
+      [
+       "0072",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "0064",
+       0
+      ],
+      [
+       "0021",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0048",
+       0
+      ],
+      [
+       "0065",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "006F",
+       0
+      ],
+      [
+       "002C",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "0077",
+       0
+      ],
+      [
+       "006F",
+       0
+      ],
+      [
+       "0072",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "0064",
+       0
+      ],
+      [
+       "0021",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0048 0065 006C 006C 006F 002C 0020 0077 006F 0072 006C 0064 0021",
+     "expected_pairs": [
+      [
+       "0048",
+       0
+      ],
+      [
+       "0065",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "006F",
+       0
+      ],
+      [
+       "002C",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "0077",
+       0
+      ],
+      [
+       "006F",
+       0
+      ],
+      [
+       "0072",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "0064",
+       0
+      ],
+      [
+       "0021",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0048",
+       0
+      ],
+      [
+       "0065",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "006F",
+       0
+      ],
+      [
+       "002C",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "0077",
+       0
+      ],
+      [
+       "006F",
+       0
+      ],
+      [
+       "0072",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "0064",
+       0
+      ],
+      [
+       "0021",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0048 0065 006C 006C 006F 002C 0020 0077 006F 0072 006C 0064 0021",
+     "expected_pairs": [
+      [
+       "0048",
+       0
+      ],
+      [
+       "0065",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "006F",
+       0
+      ],
+      [
+       "002C",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "0077",
+       0
+      ],
+      [
+       "006F",
+       0
+      ],
+      [
+       "0072",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "0064",
+       0
+      ],
+      [
+       "0021",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0048",
+       0
+      ],
+      [
+       "0065",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "006F",
+       0
+      ],
+      [
+       "002C",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "0077",
+       0
+      ],
+      [
+       "006F",
+       0
+      ],
+      [
+       "0072",
+       0
+      ],
+      [
+       "006C",
+       0
+      ],
+      [
+       "0064",
+       0
+      ],
+      [
+       "0021",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "mixed-empty",
+   "input": "",
+   "input_chars": 0,
+   "note": "empty input",
+   "forms": {
+    "NFC": {
+     "expected_output": "",
+     "expected_pairs": [],
+     "unicode9_pairs": [],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "",
+     "expected_pairs": [],
+     "unicode9_pairs": [],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "",
+     "expected_pairs": [],
+     "unicode9_pairs": [],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "",
+     "expected_pairs": [],
+     "unicode9_pairs": [],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "mixed-bom-and-controls",
+   "input": "FEFF 0009 000A 0000",
+   "input_chars": 4,
+   "note": "BOM, tab, newline, NUL pass through",
+   "forms": {
+    "NFC": {
+     "expected_output": "FEFF 0009 000A 0000",
+     "expected_pairs": [
+      [
+       "FEFF",
+       0
+      ],
+      [
+       "0009",
+       0
+      ],
+      [
+       "000A",
+       0
+      ],
+      [
+       "0000",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "FEFF",
+       0
+      ],
+      [
+       "0009",
+       0
+      ],
+      [
+       "000A",
+       0
+      ],
+      [
+       "0000",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "FEFF 0009 000A 0000",
+     "expected_pairs": [
+      [
+       "FEFF",
+       0
+      ],
+      [
+       "0009",
+       0
+      ],
+      [
+       "000A",
+       0
+      ],
+      [
+       "0000",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "FEFF",
+       0
+      ],
+      [
+       "0009",
+       0
+      ],
+      [
+       "000A",
+       0
+      ],
+      [
+       "0000",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "FEFF 0009 000A 0000",
+     "expected_pairs": [
+      [
+       "FEFF",
+       0
+      ],
+      [
+       "0009",
+       0
+      ],
+      [
+       "000A",
+       0
+      ],
+      [
+       "0000",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "FEFF",
+       0
+      ],
+      [
+       "0009",
+       0
+      ],
+      [
+       "000A",
+       0
+      ],
+      [
+       "0000",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "FEFF 0009 000A 0000",
+     "expected_pairs": [
+      [
+       "FEFF",
+       0
+      ],
+      [
+       "0009",
+       0
+      ],
+      [
+       "000A",
+       0
+      ],
+      [
+       "0000",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "FEFF",
+       0
+      ],
+      [
+       "0009",
+       0
+      ],
+      [
+       "000A",
+       0
+      ],
+      [
+       "0000",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "mixed-ligature-in-word",
+   "input": "006F FB03 0063 0065",
+   "input_chars": 4,
+   "note": "\"office\" with ffi ligature: NFKC 4->6",
+   "forms": {
+    "NFC": {
+     "expected_output": "006F FB03 0063 0065",
+     "expected_pairs": [
+      [
+       "006F",
+       0
+      ],
+      [
+       "FB03",
+       0
+      ],
+      [
+       "0063",
+       0
+      ],
+      [
+       "0065",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "006F",
+       0
+      ],
+      [
+       "FB03",
+       0
+      ],
+      [
+       "0063",
+       0
+      ],
+      [
+       "0065",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "006F FB03 0063 0065",
+     "expected_pairs": [
+      [
+       "006F",
+       0
+      ],
+      [
+       "FB03",
+       0
+      ],
+      [
+       "0063",
+       0
+      ],
+      [
+       "0065",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "006F",
+       0
+      ],
+      [
+       "FB03",
+       0
+      ],
+      [
+       "0063",
+       0
+      ],
+      [
+       "0065",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "006F 0066 0066 0069 0063 0065",
+     "expected_pairs": [
+      [
+       "006F",
+       0
+      ],
+      [
+       "0066",
+       0
+      ],
+      [
+       "0066",
+       1
+      ],
+      [
+       "0069",
+       1
+      ],
+      [
+       "0063",
+       0
+      ],
+      [
+       "0065",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "006F",
+       0
+      ],
+      [
+       "0066",
+       0
+      ],
+      [
+       "0066",
+       1
+      ],
+      [
+       "0069",
+       1
+      ],
+      [
+       "0063",
+       0
+      ],
+      [
+       "0065",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "006F 0066 0066 0069 0063 0065",
+     "expected_pairs": [
+      [
+       "006F",
+       0
+      ],
+      [
+       "0066",
+       0
+      ],
+      [
+       "0066",
+       1
+      ],
+      [
+       "0069",
+       1
+      ],
+      [
+       "0063",
+       0
+      ],
+      [
+       "0065",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "006F",
+       0
+      ],
+      [
+       "0066",
+       0
+      ],
+      [
+       "0066",
+       1
+      ],
+      [
+       "0069",
+       1
+      ],
+      [
+       "0063",
+       0
+      ],
+      [
+       "0065",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "mixed-ohm-angstrom-sentence",
+   "input": "2126 0020 212B 0020 212A",
+   "input_chars": 5,
+   "note": "three singletons in one string",
+   "forms": {
+    "NFC": {
+     "expected_output": "03A9 0020 00C5 0020 004B",
+     "expected_pairs": [
+      [
+       "03A9",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "00C5",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004B",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "03A9",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "00C5",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004B",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "03A9 0020 0041 030A 0020 004B",
+     "expected_pairs": [
+      [
+       "03A9",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       1
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004B",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "03A9",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       1
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004B",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "03A9 0020 00C5 0020 004B",
+     "expected_pairs": [
+      [
+       "03A9",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "00C5",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004B",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "03A9",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "00C5",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004B",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "03A9 0020 0041 030A 0020 004B",
+     "expected_pairs": [
+      [
+       "03A9",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       1
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004B",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "03A9",
+       0
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "0041",
+       0
+      ],
+      [
+       "030A",
+       1
+      ],
+      [
+       "0020",
+       0
+      ],
+      [
+       "004B",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "skew-10.0-ccc9-masaram-gondi",
+   "input": "0061 0301 11D44",
+   "input_chars": 3,
+   "note": "U+11D44 MASARAM GONDI SIGN HALANTA (age 10.0, ccc 9) must reorder before acute(230). Unicode 9.0.0 tables treat it as ccc 0",
+   "forms": {
+    "NFC": {
+     "expected_output": "00E1 11D44",
+     "expected_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "11D44",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "11D44",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0061 11D44 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "11D44",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "11D44",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKC": {
+     "expected_output": "00E1 11D44",
+     "expected_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "11D44",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "11D44",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0061 11D44 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "11D44",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "11D44",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  },
+  {
+   "label": "skew-10.0-ccc232-kavyka",
+   "input": "0061 1DF6 0323",
+   "input_chars": 3,
+   "note": "U+1DF6 COMBINING KAVYKA ABOVE RIGHT (age 10.0, ccc 232): dot below(220) must move before it. Unicode 9.0.0 tables treat it as ccc 0",
+   "forms": {
+    "NFC": {
+     "expected_output": "1EA1 1DF6",
+     "expected_pairs": [
+      [
+       "1EA1",
+       -1
+      ],
+      [
+       "1DF6",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "1DF6",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFD": {
+     "expected_output": "0061 0323 1DF6",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "1DF6",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "1DF6",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKC": {
+     "expected_output": "1EA1 1DF6",
+     "expected_pairs": [
+      [
+       "1EA1",
+       -1
+      ],
+      [
+       "1DF6",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "1DF6",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKD": {
+     "expected_output": "0061 0323 1DF6",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "1DF6",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "1DF6",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  },
+  {
+   "label": "skew-11.0-ccc220-nko",
+   "input": "0061 0301 07FD",
+   "input_chars": 3,
+   "note": "U+07FD NKO DANTAYALAN (age 11.0, ccc 220) reorders before acute",
+   "forms": {
+    "NFC": {
+     "expected_output": "00E1 07FD",
+     "expected_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "07FD",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "07FD",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0061 07FD 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "07FD",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "07FD",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKC": {
+     "expected_output": "00E1 07FD",
+     "expected_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "07FD",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "07FD",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0061 07FD 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "07FD",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "07FD",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  },
+  {
+   "label": "skew-11.0-ccc9-gunjala-gondi",
+   "input": "0061 0301 11D97",
+   "input_chars": 3,
+   "note": "U+11D97 GUNJALA GONDI VIRAMA (age 11.0, ccc 9) reorders before acute",
+   "forms": {
+    "NFC": {
+     "expected_output": "00E1 11D97",
+     "expected_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "11D97",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "11D97",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0061 11D97 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "11D97",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "11D97",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKC": {
+     "expected_output": "00E1 11D97",
+     "expected_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "11D97",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "11D97",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0061 11D97 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "11D97",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "11D97",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  },
+  {
+   "label": "skew-12.0-raised-mr-sign",
+   "input": "1F16C",
+   "input_chars": 1,
+   "note": "U+1F16C RAISED MR SIGN (age 12.0): <super> M R under NFK* (1->2)",
+   "forms": {
+    "NFC": {
+     "expected_output": "1F16C",
+     "expected_pairs": [
+      [
+       "1F16C",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F16C",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1F16C",
+     "expected_pairs": [
+      [
+       "1F16C",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F16C",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "004D 0052",
+     "expected_pairs": [
+      [
+       "004D",
+       0
+      ],
+      [
+       "0052",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F16C",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKD": {
+     "expected_output": "004D 0052",
+     "expected_pairs": [
+      [
+       "004D",
+       0
+      ],
+      [
+       "0052",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1F16C",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  },
+  {
+   "label": "skew-12.0-ccc230-hmong",
+   "input": "0061 1E130 0323",
+   "input_chars": 3,
+   "note": "U+1E130 NYIAKENG PUACHUE HMONG TONE-B (age 12.0, ccc 230): dot below(220) must move before it",
+   "forms": {
+    "NFC": {
+     "expected_output": "1EA1 1E130",
+     "expected_pairs": [
+      [
+       "1EA1",
+       -1
+      ],
+      [
+       "1E130",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "1E130",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFD": {
+     "expected_output": "0061 0323 1E130",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "1E130",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "1E130",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKC": {
+     "expected_output": "1EA1 1E130",
+     "expected_pairs": [
+      [
+       "1EA1",
+       -1
+      ],
+      [
+       "1E130",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "1E130",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKD": {
+     "expected_output": "0061 0323 1E130",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "1E130",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "1E130",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  },
+  {
+   "label": "skew-12.1-reiwa",
+   "input": "32FF",
+   "input_chars": 1,
+   "note": "U+32FF SQUARE ERA NAME REIWA (age 12.1): <square> 4EE4 548C (1->2)",
+   "forms": {
+    "NFC": {
+     "expected_output": "32FF",
+     "expected_pairs": [
+      [
+       "32FF",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "32FF",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "32FF",
+     "expected_pairs": [
+      [
+       "32FF",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "32FF",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "4EE4 548C",
+     "expected_pairs": [
+      [
+       "4EE4",
+       0
+      ],
+      [
+       "548C",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "32FF",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKD": {
+     "expected_output": "4EE4 548C",
+     "expected_pairs": [
+      [
+       "4EE4",
+       0
+      ],
+      [
+       "548C",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "32FF",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  },
+  {
+   "label": "skew-13.0-segmented-digit",
+   "input": "1FBF1",
+   "input_chars": 1,
+   "note": "U+1FBF1 SEGMENTED DIGIT ONE (age 13.0): <font> 1",
+   "forms": {
+    "NFC": {
+     "expected_output": "1FBF1",
+     "expected_pairs": [
+      [
+       "1FBF1",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1FBF1",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1FBF1",
+     "expected_pairs": [
+      [
+       "1FBF1",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1FBF1",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0031",
+     "expected_pairs": [
+      [
+       "0031",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1FBF1",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKD": {
+     "expected_output": "0031",
+     "expected_pairs": [
+      [
+       "0031",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1FBF1",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  },
+  {
+   "label": "skew-13.0-canonical-dives-akuru",
+   "input": "11938",
+   "input_chars": 1,
+   "note": "U+11938 DIVES AKURU VOWEL SIGN O (age 13.0): canonical -> 11935 11930; recomposes under NFC",
+   "forms": {
+    "NFC": {
+     "expected_output": "11938",
+     "expected_pairs": [
+      [
+       "11938",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "11938",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "11935 11930",
+     "expected_pairs": [
+      [
+       "11935",
+       0
+      ],
+      [
+       "11930",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "11938",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKC": {
+     "expected_output": "11938",
+     "expected_pairs": [
+      [
+       "11938",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "11938",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "11935 11930",
+     "expected_pairs": [
+      [
+       "11935",
+       0
+      ],
+      [
+       "11930",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "11938",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  },
+  {
+   "label": "skew-13.0-ccc220-w-below",
+   "input": "0061 0301 1ABF",
+   "input_chars": 3,
+   "note": "U+1ABF COMBINING LATIN SMALL LETTER W BELOW (age 13.0, ccc 220) reorders before acute",
+   "forms": {
+    "NFC": {
+     "expected_output": "00E1 1ABF",
+     "expected_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "1ABF",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "1ABF",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0061 1ABF 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "1ABF",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "1ABF",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKC": {
+     "expected_output": "00E1 1ABF",
+     "expected_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "1ABF",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "1ABF",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0061 1ABF 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "1ABF",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "1ABF",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  },
+  {
+   "label": "skew-14.0-modifier-capital-c",
+   "input": "A7F2",
+   "input_chars": 1,
+   "note": "U+A7F2 MODIFIER LETTER CAPITAL C (age 14.0): <super> C",
+   "forms": {
+    "NFC": {
+     "expected_output": "A7F2",
+     "expected_pairs": [
+      [
+       "A7F2",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "A7F2",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "A7F2",
+     "expected_pairs": [
+      [
+       "A7F2",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "A7F2",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0043",
+     "expected_pairs": [
+      [
+       "0043",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "A7F2",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKD": {
+     "expected_output": "0043",
+     "expected_pairs": [
+      [
+       "0043",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "A7F2",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  },
+  {
+   "label": "skew-14.0-ccc230-arabic-al-juz",
+   "input": "0061 0898 0323",
+   "input_chars": 3,
+   "note": "U+0898 ARABIC SMALL HIGH WORD AL-JUZ (age 14.0, ccc 230): dot below moves before it",
+   "forms": {
+    "NFC": {
+     "expected_output": "1EA1 0898",
+     "expected_pairs": [
+      [
+       "1EA1",
+       -1
+      ],
+      [
+       "0898",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0898",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFD": {
+     "expected_output": "0061 0323 0898",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0898",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0898",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKC": {
+     "expected_output": "1EA1 0898",
+     "expected_pairs": [
+      [
+       "1EA1",
+       -1
+      ],
+      [
+       "0898",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0898",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKD": {
+     "expected_output": "0061 0323 0898",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "0898",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0898",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  },
+  {
+   "label": "skew-15.0-modifier-cyrillic",
+   "input": "1E030",
+   "input_chars": 1,
+   "note": "U+1E030 MODIFIER LETTER CYRILLIC SMALL A (age 15.0): <super> 0430",
+   "forms": {
+    "NFC": {
+     "expected_output": "1E030",
+     "expected_pairs": [
+      [
+       "1E030",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1E030",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1E030",
+     "expected_pairs": [
+      [
+       "1E030",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1E030",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0430",
+     "expected_pairs": [
+      [
+       "0430",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1E030",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKD": {
+     "expected_output": "0430",
+     "expected_pairs": [
+      [
+       "0430",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1E030",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  },
+  {
+   "label": "skew-15.0-ccc220-sakta",
+   "input": "0061 0301 10EFD",
+   "input_chars": 3,
+   "note": "U+10EFD ARABIC SMALL LOW WORD SAKTA (age 15.0, ccc 220) reorders before acute",
+   "forms": {
+    "NFC": {
+     "expected_output": "00E1 10EFD",
+     "expected_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "10EFD",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "10EFD",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "0061 10EFD 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "10EFD",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "10EFD",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKC": {
+     "expected_output": "00E1 10EFD",
+     "expected_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "10EFD",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "00E1",
+       -1
+      ],
+      [
+       "10EFD",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "0061 10EFD 0301",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "10EFD",
+       0
+      ],
+      [
+       "0301",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0301",
+       0
+      ],
+      [
+       "10EFD",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  },
+  {
+   "label": "skew-16.0-canonical-gurung-khema",
+   "input": "16121",
+   "input_chars": 1,
+   "note": "U+16121 GURUNG KHEMA (age 16.0): canonical -> 1611E 1611E (starter composes with itself)",
+   "forms": {
+    "NFC": {
+     "expected_output": "16121",
+     "expected_pairs": [
+      [
+       "16121",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "16121",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "1611E 1611E",
+     "expected_pairs": [
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "16121",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKC": {
+     "expected_output": "16121",
+     "expected_pairs": [
+      [
+       "16121",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "16121",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "1611E 1611E",
+     "expected_pairs": [
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "16121",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  },
+  {
+   "label": "skew-16.0-compose-self-pair",
+   "input": "1611E 1611E",
+   "input_chars": 2,
+   "note": "two U+1611E compose to U+16121 under NFC (2->1)",
+   "forms": {
+    "NFC": {
+     "expected_output": "16121",
+     "expected_pairs": [
+      [
+       "16121",
+       -1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFD": {
+     "expected_output": "1611E 1611E",
+     "expected_pairs": [
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "16121",
+     "expected_pairs": [
+      [
+       "16121",
+       -1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKD": {
+     "expected_output": "1611E 1611E",
+     "expected_pairs": [
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "skew-16.0-chained-composite",
+   "input": "1611E 1611E 1611E",
+   "input_chars": 3,
+   "note": "chained primary composite (NormalizationTest Part5 shape); expected from UCD 17 reference",
+   "forms": {
+    "NFC": {
+     "expected_output": "16121 1611E",
+     "expected_pairs": [
+      [
+       "16121",
+       -1
+      ],
+      [
+       "1611E",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFD": {
+     "expected_output": "1611E 1611E 1611E",
+     "expected_pairs": [
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "16121 1611E",
+     "expected_pairs": [
+      [
+       "16121",
+       -1
+      ],
+      [
+       "1611E",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKD": {
+     "expected_output": "1611E 1611E 1611E",
+     "expected_pairs": [
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       0
+      ],
+      [
+       "1611E",
+       0
+      ]
+     ],
+     "status": "match"
+    }
+   }
+  },
+  {
+   "label": "skew-16.0-tulu-tigalari-two-part",
+   "input": "113C5",
+   "input_chars": 1,
+   "note": "U+113C5 TULU-TIGALARI VOWEL SIGN (age 16.0): canonical two-part vowel",
+   "forms": {
+    "NFC": {
+     "expected_output": "113C5",
+     "expected_pairs": [
+      [
+       "113C5",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "113C5",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "113C2 113C2",
+     "expected_pairs": [
+      [
+       "113C2",
+       0
+      ],
+      [
+       "113C2",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "113C5",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKC": {
+     "expected_output": "113C5",
+     "expected_pairs": [
+      [
+       "113C5",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "113C5",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKD": {
+     "expected_output": "113C2 113C2",
+     "expected_pairs": [
+      [
+       "113C2",
+       0
+      ],
+      [
+       "113C2",
+       1
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "113C5",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  },
+  {
+   "label": "skew-16.0-ccc230-garay",
+   "input": "0061 10D69 0323",
+   "input_chars": 3,
+   "note": "U+10D69 GARAY VOWEL SIGN E (age 16.0, ccc 230): dot below moves before it",
+   "forms": {
+    "NFC": {
+     "expected_output": "1EA1 10D69",
+     "expected_pairs": [
+      [
+       "1EA1",
+       -1
+      ],
+      [
+       "10D69",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "10D69",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFD": {
+     "expected_output": "0061 0323 10D69",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "10D69",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "10D69",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKC": {
+     "expected_output": "1EA1 10D69",
+     "expected_pairs": [
+      [
+       "1EA1",
+       -1
+      ],
+      [
+       "10D69",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "10D69",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKD": {
+     "expected_output": "0061 0323 10D69",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "10D69",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "10D69",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  },
+  {
+   "label": "skew-17.0-modifier-capital-s",
+   "input": "A7F1",
+   "input_chars": 1,
+   "note": "U+A7F1 MODIFIER LETTER CAPITAL S (age 17.0): <super> S",
+   "forms": {
+    "NFC": {
+     "expected_output": "A7F1",
+     "expected_pairs": [
+      [
+       "A7F1",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "A7F1",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFD": {
+     "expected_output": "A7F1",
+     "expected_pairs": [
+      [
+       "A7F1",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "A7F1",
+       0
+      ]
+     ],
+     "status": "match"
+    },
+    "NFKC": {
+     "expected_output": "0053",
+     "expected_pairs": [
+      [
+       "0053",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "A7F1",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKD": {
+     "expected_output": "0053",
+     "expected_pairs": [
+      [
+       "0053",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "A7F1",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  },
+  {
+   "label": "skew-17.0-ccc230-double-caron",
+   "input": "0061 1ACF 0323",
+   "input_chars": 3,
+   "note": "U+1ACF COMBINING DOUBLE CARON (age 17.0, ccc 230): dot below moves before it",
+   "forms": {
+    "NFC": {
+     "expected_output": "1EA1 1ACF",
+     "expected_pairs": [
+      [
+       "1EA1",
+       -1
+      ],
+      [
+       "1ACF",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "1ACF",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFD": {
+     "expected_output": "0061 0323 1ACF",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "1ACF",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "1ACF",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKC": {
+     "expected_output": "1EA1 1ACF",
+     "expected_pairs": [
+      [
+       "1EA1",
+       -1
+      ],
+      [
+       "1ACF",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "1ACF",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    },
+    "NFKD": {
+     "expected_output": "0061 0323 1ACF",
+     "expected_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "0323",
+       0
+      ],
+      [
+       "1ACF",
+       0
+      ]
+     ],
+     "unicode9_pairs": [
+      [
+       "0061",
+       0
+      ],
+      [
+       "1ACF",
+       0
+      ],
+      [
+       "0323",
+       0
+      ]
+     ],
+     "status": "unicode-9-wrong-chars (Unicode 9.0.0 table skew)"
+    }
+   }
+  }
+ ]
+}

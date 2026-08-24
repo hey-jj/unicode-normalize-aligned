@@ -1,0 +1,9 @@
+[package]
+name = "gen"
+version = "0.0.0"
+edition = "2021"
+publish = false
+description = "Table generator for unicode-normalize-aligned"
+license = "MIT OR Apache-2.0"
+
+[dependencies]

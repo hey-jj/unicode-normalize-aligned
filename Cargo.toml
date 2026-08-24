@@ -1,0 +1,41 @@
+[package]
+name = "unicode-normalize-aligned"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.63"
+authors = ["Justin Jones <hey.jones@icloud.com>"]
+license = "MIT OR Apache-2.0"
+description = "Unicode NFC, NFD, NFKC and NFKD normalization that tags every output char with its alignment to the input"
+repository = "https://github.com/hey-jj/unicode-normalize-aligned"
+documentation = "https://docs.rs/unicode-normalize-aligned"
+readme = "README.md"
+keywords = ["unicode", "normalization", "nfc", "nfd", "alignment"]
+categories = ["text-processing", "internationalization", "no-std"]
+exclude = [
+    ".github/",
+    "fuzz/",
+    "gen/",
+    "scripts/",
+    "tools/",
+    "ucd/17.0.0/*.txt",
+    "tests/normalization_test.rs",
+    "tests/alignment_invariants.rs",
+    "tests/no_alloc.rs",
+    "tests/regression.rs",
+    "tests/common/ucd.rs",
+]
+
+[workspace]
+members = ["gen"]
+exclude = ["fuzz"]
+
+[dependencies]
+
+[dev-dependencies]
+criterion = { version = "0.5", default-features = false, features = ["cargo_bench_support"] }
+serde_json = "1"
+unicode-normalization = "0.1.25"
+
+[[bench]]
+name = "throughput"
+harness = false

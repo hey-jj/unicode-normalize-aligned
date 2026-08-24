@@ -1,0 +1,21 @@
+[package]
+name = "unicode-normalize-aligned-fuzz"
+version = "0.0.0"
+edition = "2021"
+publish = false
+description = "Fuzz harness for unicode-normalize-aligned"
+license = "MIT OR Apache-2.0"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+unicode-normalize-aligned = { path = ".." }
+
+[[bin]]
+name = "normalize"
+path = "fuzz_targets/normalize.rs"
+test = false
+doc = false
+bench = false
