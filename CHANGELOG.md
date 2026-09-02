@@ -1,3 +1,7 @@
+## 0.1.2 (2026-09-02)
+
+Fix: corrected an edge case in canonical composition ordering for certain BMP characters.
+
 # Changelog
 
 ## 0.1.1 - 2026-09-02
