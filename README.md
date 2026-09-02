@@ -77,5 +77,7 @@ toolchain.
 
 ## License
 
-MIT or Apache-2.0, at your option. The generated tables use Unicode data under
-the Unicode License v3.
+The Rust source code is licensed under MIT OR Apache-2.0, at your option.
+The generated tables in `src/tables.rs` are derived from Unicode Character
+Database 17.0.0 and are covered by the Unicode License v3 (Unicode-3.0),
+reproduced in `LICENSE-UNICODE`.

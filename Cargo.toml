@@ -1,10 +1,10 @@
 [package]
 name = "unicode-normalize-aligned"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 rust-version = "1.63"
 authors = ["Justin Jones <hey.jones@icloud.com>"]
-license = "MIT OR Apache-2.0"
+license = "(MIT OR Apache-2.0) AND Unicode-3.0"
 description = "Unicode NFC, NFD, NFKC and NFKD normalization that tags every output char with its alignment to the input"
 repository = "https://github.com/hey-jj/unicode-normalize-aligned"
 documentation = "https://docs.rs/unicode-normalize-aligned"

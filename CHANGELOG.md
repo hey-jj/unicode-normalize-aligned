@@ -1,10 +1,9 @@
 # Changelog
 
-## Changed
+## 0.1.1 - 2026-09-02
 
-- Moved raw UCD 17.0.0 data and the table generator to the sibling `devkit/`
-  directory. The published package no longer includes
-  `ucd/LICENSE-UNICODE` or `ucd/17.0.0/MANIFEST.sha256`.
+- Moved raw UCD 17.0.0 data and the table generator to the sibling `devkit/` directory, out of the published package.
+- Added `LICENSE-UNICODE` at the crate root and corrected `license` to `(MIT OR Apache-2.0) AND Unicode-3.0`.
 
 ## 0.1.0 - 2026-08-21
 
