@@ -1,8 +1,16 @@
 //! The tables must come from the pinned UCD 17.0.0 files: the version
 //! constant matches, and the hashes recorded in the generated header equal
-//! the manifest. CI additionally regenerates the tables and diffs.
+//! the pinned manifest. The devkit regeneration check also diffs the tables.
 
 use unicode_normalize_aligned::UNICODE_VERSION;
+
+/// SHA-256 manifest for UCD 17.0.0, covering the files read by the generator.
+const MANIFEST: &str = "\
+2f239196ef3b5b61db5cc476e9bd80f534d15aa1b74e1be1dea5d042a344c85f  CompositionExclusions.txt
+f8ecdf768bdc210f201abd271d9bc587825618a86a7046a8146cc816393f1998  DerivedAge.txt
+71fd6a206a2c0cdd41feb6b7f656aa31091db45e9cedc926985d718397f9e488  DerivedNormalizationProps.txt
+5019ffd530751a741900c849c0e010332f142a3612234639bd200b82138a87db  NormalizationTest.txt
+2e1efc1dcb59c575eedf5ccae60f95229f706ee6d031835247d843c11d96470c  UnicodeData.txt";
 
 #[test]
 fn unicode_version_is_17_0_0() {
@@ -12,9 +20,8 @@ fn unicode_version_is_17_0_0() {
 #[test]
 fn tables_header_hashes_equal_the_manifest() {
     let tables = include_str!("../src/tables.rs");
-    let manifest = include_str!("../ucd/17.0.0/MANIFEST.sha256");
     let mut checked = 0;
-    for line in manifest.lines() {
+    for line in MANIFEST.lines() {
         let mut parts = line.split_whitespace();
         let hash = parts.next().expect("manifest hash");
         let name = parts.next().expect("manifest name");

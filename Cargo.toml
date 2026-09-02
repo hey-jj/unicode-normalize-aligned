@@ -14,19 +14,11 @@ categories = ["text-processing", "internationalization", "no-std"]
 exclude = [
     ".github/",
     "fuzz/",
-    "gen/",
     "scripts/",
     "tools/",
-    "ucd/17.0.0/*.txt",
-    "tests/normalization_test.rs",
-    "tests/alignment_invariants.rs",
-    "tests/no_alloc.rs",
-    "tests/regression.rs",
-    "tests/common/ucd.rs",
 ]
 
 [workspace]
-members = ["gen"]
 exclude = ["fuzz"]
 
 [dependencies]

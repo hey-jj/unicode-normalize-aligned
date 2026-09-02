@@ -1,5 +1,11 @@
 # Changelog
 
+## Changed
+
+- Moved raw UCD 17.0.0 data and the table generator to the sibling `devkit/`
+  directory. The published package no longer includes
+  `ucd/LICENSE-UNICODE` or `ucd/17.0.0/MANIFEST.sha256`.
+
 ## 0.1.0 - 2026-08-21
 
 First release.

@@ -33,14 +33,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@1.63
       - run: scripts/msrv-floor.sh cargo 1.63 --doc
 
-  tables:
-    name: regenerate tables and diff
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
-      - run: cargo run -p gen --release
-      - run: git diff --exit-code src/tables.rs
+  # Table regeneration runs from the sibling devkit before release.
 
   bench-gate:
     name: throughput floor 0.90x

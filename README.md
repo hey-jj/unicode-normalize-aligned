@@ -49,22 +49,23 @@ Characters added to Unicode after 9.0.0 normalize under the current tables.
 
 ## What the test suite pins
 
-- `tests/normalization_test.rs` runs all 400,680 assertions of
+- `devkit/check/tests/normalization_test.rs` runs all 400,680 assertions of
   NormalizationTest 17.0.0, plus the invariance clause for every assigned
   code point absent from its Part 1.
 - `tests/alignment_vectors.rs` matches 102 curated inputs across all four
   forms, 408 `(char, isize)` sequences, character for character and tag
   for tag.
-- `tests/no_alloc.rs` counts heap allocations with a wrapping allocator:
+- `devkit/check/tests/no_alloc.rs` counts heap allocations with a wrapping allocator:
   zero on every NormalizationTest input and on any stream-safe text
   (UAX15-D4), one per spilled buffer on longer combining runs.
 - `benches/throughput.rs` fails CI when this crate drops below 0.90x the
   throughput of `unicode-normalization` 0.1.25 on any of six corpora:
   ASCII, accented Latin, decomposed Vietnamese, Hangul jamo, pointed
   Arabic, emoji ZWJ.
-- `gen/` writes `src/tables.rs` from the UCD files in `ucd/17.0.0/`,
-  checking their sha256 hashes against `MANIFEST.sha256` before it parses
-  a byte. CI regenerates the tables and fails on any diff.
+- Table generation uses the generator and raw UCD 17.0.0 data in the sibling
+  `devkit/` directory. From `devkit/`, run `cargo run -p gen --release` to
+  regenerate `src/tables.rs`. The published package contains the generated
+  tables.
 - `fuzz/` feeds arbitrary input through every form, quick check and `char`
   query, asserting idempotence, the cross-form equalities and the
   alignment invariants on each run.
@@ -76,5 +77,5 @@ toolchain.
 
 ## License
 
-MIT or Apache-2.0, at your option. The bundled Unicode data files are used
-under the Unicode License v3 (`ucd/LICENSE-UNICODE`).
+MIT or Apache-2.0, at your option. The generated tables use Unicode data under
+the Unicode License v3.

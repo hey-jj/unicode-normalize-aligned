@@ -54,7 +54,7 @@ mod props;
 mod quick_check;
 mod recompose;
 // Machine-written file, kept byte-identical to the generator's output, so
-// rustfmt must not rewrap it. CI regenerates and diffs.
+// rustfmt must not rewrap it. The devkit regeneration check diffs the result.
 #[rustfmt::skip]
 mod tables;
 
